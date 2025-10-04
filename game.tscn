@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=7 format=3 uid="uid://bxh18be3ltwba"]
 
-[ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball.tscn" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://emsxc7axc1y4" path="res://PixelRobot.png" id="2_e2o6t"]
+[ext_resource type="Texture2D" uid="uid://d2xfc3jahpjip" path="res://PixelRobot.png" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://ddh1oqme01mty" path="res://player.gd" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://cn5xbedqwpwh4" path="res://arms_center.gd" id="3_7jktm"]
+[ext_resource type="Texture2D" uid="uid://ba01lw0thklfc" path="res://robotArms.png" id="3_fc0e3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nbo"]
-radius = 55.0
+radius = 19.0
 height = 140.0
 
 [node name="game" type="Node2D"]
@@ -29,24 +30,6 @@ offset_top = -102.0
 offset_right = 700.0
 offset_bottom = 143.0
 
-[node name="RigidBody2D" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-156, -390)
-
-[node name="RigidBody2D2" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-155, -425)
-
-[node name="RigidBody2D3" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-121, -390)
-
-[node name="RigidBody2D4" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-150, -471)
-
-[node name="RigidBody2D5" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-137, -441)
-
-[node name="RigidBody2D6" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(-134, -419)
-
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-132, -205)
 collision_layer = 2
@@ -57,5 +40,26 @@ script = ExtResource("2_feb5d")
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_80nbo")
 
-[node name="PixelRobotSprite" type="Sprite2D" parent="Player"]
+[node name="RobotSprites" type="Node2D" parent="Player"]
+
+[node name="ArmsCenter" type="Node2D" parent="Player/RobotSprites"]
+position = Vector2(2, -47)
+script = ExtResource("3_7jktm")
+
+[node name="RobotArms" type="Sprite2D" parent="Player/RobotSprites/ArmsCenter"]
+position = Vector2(-2.99998, 52)
+texture = ExtResource("3_fc0e3")
+
+[node name="ArmsAndBar" type="CharacterBody2D" parent="Player/RobotSprites/ArmsCenter"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/RobotSprites/ArmsCenter/ArmsAndBar"]
+position = Vector2(130, 252)
+polygon = PackedVector2Array(-232, -311, -201, -298, -168, -290, -124, -286, -92, -289, -59, -296, -42, -304, -29, -309, -25, -306, -28, -301, -46, -295, -66, -287, -77, -285, -79, -272, -86, -267, -88, -239, -96, -228, -108, -217, -127, -212, -148, -216, -162, -226, -174, -236, -181, -249, -183, -270, -191, -278, -192, -288, -207, -293, -223, -300, -234, -304, -235, -309)
+
+[node name="PixelRobot" type="Sprite2D" parent="Player/RobotSprites"]
+position = Vector2(0, -1)
 texture = ExtResource("2_e2o6t")
+
+[node name="BallSpawner" type="Node2D" parent="."]

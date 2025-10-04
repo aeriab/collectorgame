@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2xfc3jahpjip"
-path="res://.godot/imported/PixelRobot.png-954c2526102687485641f36ca8a52f69.ctex"
+uid="uid://ba01lw0thklfc"
+path="res://.godot/imported/robotArms.png-32e45bf28f54f65dcc007a341d340aac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PixelRobot.png"
-dest_files=["res://.godot/imported/PixelRobot.png-954c2526102687485641f36ca8a52f69.ctex"]
+source_file="res://robotArms.png"
+dest_files=["res://.godot/imported/robotArms.png-32e45bf28f54f65dcc007a341d340aac.ctex"]
 
 [params]
 

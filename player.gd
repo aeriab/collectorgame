@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 160.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var pixel_robot_sprite = $PixelRobotSprite
+@onready var robot_arms = $RobotSprites/ArmsCenter/RobotArms
+@onready var pixel_robot = $RobotSprites/PixelRobot
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -14,9 +16,11 @@ func _physics_process(delta):
 	
 	# Flip the Sprite
 	if direction > 0:
-		pixel_robot_sprite.flip_h = true
+		robot_arms.flip_h = true
+		pixel_robot.flip_h = true
 	elif direction < 0:
-		pixel_robot_sprite.flip_h = false
+		robot_arms.flip_h = false
+		pixel_robot.flip_h = false
 	
 	# Apply movement
 	if direction:
