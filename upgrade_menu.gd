@@ -2,7 +2,6 @@ extends CanvasLayer
 
 signal upgrade_selected(upgrade_name)
 signal rerolled
-signal round_advanced
 
 # Link to the nodes we need to access
 @onready var animation_player = $AnimationPlayer
@@ -10,7 +9,6 @@ signal round_advanced
 
 func _ready():
 	hide()
-	next_round_button.pressed.connect(_on_next_round_pressed)
 	animation_player.animation_finished.connect(_on_animation_finished)
 
 func show_menu():
@@ -18,9 +16,9 @@ func show_menu():
 	animation_player.play("slide_in")
 
 # This function is called when the "Next Round" button is pressed
-func _on_next_round_pressed():
+func hide_menu():
 	animation_player.play("slide_out")
-	round_advanced.emit() # Let the main game know the round is over
+	Global.on_next_round_clicked() # Let the main game know the round is over
 
 # This runs when either animation finishes
 func _on_animation_finished(anim_name):
@@ -36,3 +34,7 @@ func _on_upgrade_pressed(upgrade_name):
 func _on_reroll_pressed():
 	print("Player rerolled upgrades.")
 	rerolled.emit()
+
+
+func _on_next_round_button_pressed() -> void:
+	hide_menu()

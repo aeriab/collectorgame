@@ -61,9 +61,9 @@ script = ExtResource("1_jakhq")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 offset_left = 124.0
-offset_top = -567.0
+offset_top = 686.0
 offset_right = 2469.0
-offset_bottom = 491.0
+offset_bottom = 1744.0
 scale = Vector2(0.390177, 0.390177)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
@@ -173,3 +173,5 @@ text = "Next Round"
 libraries = {
 &"": SubResource("AnimationLibrary_u7ydm")
 }
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerShop/NextRoundButton" to="." method="_on_next_round_button_pressed"]

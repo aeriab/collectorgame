@@ -17,6 +17,8 @@ var cloud_ball_spawn_rate: float = 1.5
 
 var round_progression_rate: float = 5.0
 
+var round: int = 1
+
 var round_going: bool = true
 signal stop_round
 signal start_round
@@ -27,5 +29,6 @@ func on_bar_full():
 	print("The progress bar is full! Responding globally.")
 
 func on_next_round_clicked():
+	round += 1
 	round_going = true
 	start_round.emit()
