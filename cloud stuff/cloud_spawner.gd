@@ -18,6 +18,7 @@ func _on_stop_round():
 	timer.stop()
 
 func _on_start_round():
+	timer.wait_time = randf_range(0.01, Global.cloud_spawn_rate)
 	timer.start()
 
 func _on_timer_timeout():

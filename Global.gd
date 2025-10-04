@@ -17,9 +17,8 @@ func _process(delta: float) -> void:
 	adjusted_movement_speed = base_movement_speed * modifier_movement_speed
 	adjusted_cloud_spawn = base_cloud_spawn * modifier_cloud_spawn
 	adjusted_dust_spawn = base_dust_spawn * modifier_dust_spawn
-	
-	spawn_rate = 4.0 * (adjusted_dust_spawn / 100.0)
-	cloud_spawn_rate = 25.0 * (adjusted_cloud_spawn / 100.0)
+	spawn_rate = 4.0 * (1 / (adjusted_dust_spawn / 100.0))
+	cloud_spawn_rate = 25.0 * (1 / (adjusted_cloud_spawn / 100.0))
 	move_speed = 160.0 * (adjusted_movement_speed / 100.0)
 	pass
 

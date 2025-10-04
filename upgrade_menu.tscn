@@ -150,5 +150,7 @@ libraries = {
 }
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton1" to="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton1" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton2" to="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton2" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton3" to="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton3" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerShop/RerollButton" to="PanelContainer/VBoxContainer/HBoxContainerShop/RerollButton" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerShop/NextRoundButton" to="." method="_on_next_round_button_pressed"]

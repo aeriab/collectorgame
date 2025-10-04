@@ -26,10 +26,14 @@ var min_rarity: int = 1
 var max_rarity: int = 2
 var chosen_upgrade
 func _on_shop_reset():
+	show()
 	rarity = randi_range(min_rarity,max_rarity)
 	chosen_upgrade = all_upgrades[rarity-1].pick_random()
 	upgrade_cost = Global.base_reroll_costs[Global.round-1] * rarity
 	text = chosen_upgrade.name + "\n" + "+" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n........................................" + "\n$" + str(upgrade_cost)
 
 func _on_pressed() -> void:
-	pass # Replace with function body.
+	if Global.money >= upgrade_cost:
+		Global.money -= upgrade_cost
+		hide()
+		Global.set(chosen_upgrade.target_global_var1, Global.get(chosen_upgrade.target_global_var1) + chosen_upgrade.value)
