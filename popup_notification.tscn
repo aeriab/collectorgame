@@ -1,7 +1,21 @@
-[gd_scene format=3 uid="uid://cawrnxunmkak4"]
+[gd_scene load_steps=3 format=3 uid="uid://cawrnxunmkak4"]
+
+[ext_resource type="FontFile" uid="uid://bj618srsmjpcn" path="res://Font/static/Outfit-Medium.ttf" id="1_4m61s"]
+[ext_resource type="Script" uid="uid://cevlvawkasjmy" path="res://popup_notification.gd" id="1_itrpa"]
 
 [node name="PopupNotification" type="Node2D"]
+script = ExtResource("1_itrpa")
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -24.0
+offset_top = -19.0
+offset_right = 719.0
+offset_bottom = 611.0
+scale = Vector2(0.0549546, 0.0549546)
+theme_override_colors/font_color = Color(0.623819, 1, 0.593899, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("1_4m61s")
+theme_override_font_sizes/font_size = 500
+text = "+$1"

@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cnekgfju57wp5"]
 
-[ext_resource type="Script" uid="uid://chci27ndcntys" path="res://ball.gd" id="1_41u45"]
-[ext_resource type="Texture2D" uid="uid://2us0y1eemms0" path="res://Cue_Ball_Temp.png" id="1_x8fbi"]
+[ext_resource type="Script" uid="uid://chci27ndcntys" path="res://ball stuff/ball.gd" id="1_41u45"]
+[ext_resource type="Texture2D" uid="uid://2us0y1eemms0" path="res://ball stuff/Cue_Ball_Temp.png" id="1_x8fbi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41u45"]
 bounce = 0.3

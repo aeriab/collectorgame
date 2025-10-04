@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba01lw0thklfc"
-path="res://.godot/imported/robotArms.png-32e45bf28f54f65dcc007a341d340aac.ctex"
+uid="uid://2us0y1eemms0"
+path="res://.godot/imported/Cue_Ball_Temp.png-689a5b66e310fc2c10e523dce9a667f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://robotArms.png"
-dest_files=["res://.godot/imported/robotArms.png-32e45bf28f54f65dcc007a341d340aac.ctex"]
+source_file="res://ball stuff/Cue_Ball_Temp.png"
+dest_files=["res://.godot/imported/Cue_Ball_Temp.png-689a5b66e310fc2c10e523dce9a667f2.ctex"]
 
 [params]
 
