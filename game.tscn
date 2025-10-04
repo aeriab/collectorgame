@@ -9,13 +9,13 @@
 [ext_resource type="Script" uid="uid://bc57nnpwvjbsf" path="res://ball stuff/ball_spawner.gd" id="5_ryrav"]
 [ext_resource type="FontFile" uid="uid://bj618srsmjpcn" path="res://Font/static/Outfit-Medium.ttf" id="8_vef74"]
 [ext_resource type="Script" uid="uid://bjtny0bsusemu" path="res://money_label.gd" id="9_hve3p"]
-[ext_resource type="Script" uid="uid://bm48iec6wypnm" path="res://cloud_spawner.gd" id="10_hve3p"]
-[ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud.tscn" id="11_mfdv2"]
+[ext_resource type="Script" uid="uid://bm48iec6wypnm" path="res://cloud stuff/cloud_spawner.gd" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud stuff/cloud.tscn" id="11_mfdv2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryrav"]
-size = Vector2(28, 148)
+size = Vector2(28, 111.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
 size = Vector2(118, 33)
@@ -52,10 +52,6 @@ color = Color(0.698039, 1, 0.670588, 1)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
-position = Vector2(-66, -111)
-shape = SubResource("RectangleShape2D_ryrav")
-
 [node name="ColorRect" type="ColorRect" parent="LeftWall"]
 offset_left = -80.0
 offset_top = -185.0
@@ -63,13 +59,13 @@ offset_right = -52.0
 offset_bottom = -77.0
 color = Color(0.698247, 1, 0.671604, 1)
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-66, -129.125)
+shape = SubResource("RectangleShape2D_ryrav")
+
 [node name="RightWall" type="StaticBody2D" parent="."]
 rotation = 3.14159
 scale = Vector2(1, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
-position = Vector2(-66, -111)
-shape = SubResource("RectangleShape2D_ryrav")
 
 [node name="ColorRect" type="ColorRect" parent="RightWall"]
 offset_left = -80.0
@@ -77,6 +73,10 @@ offset_top = -185.0
 offset_right = -52.0
 offset_bottom = -77.0
 color = Color(0.698039, 1, 0.670588, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-66.0003, -129)
+shape = SubResource("RectangleShape2D_ryrav")
 
 [node name="BallCollector" type="Area2D" parent="."]
 position = Vector2(0, -98)
@@ -126,10 +126,10 @@ ball_scene = ExtResource("1_80nbo")
 autostart = true
 
 [node name="MoneyLabel" type="Label" parent="."]
-offset_left = 86.0
-offset_top = -98.0
-offset_right = 2435.0
-offset_bottom = 532.0
+offset_left = -115.0
+offset_top = -77.0
+offset_right = 2234.0
+offset_bottom = 553.0
 scale = Vector2(0.0975884, 0.0975884)
 theme_override_colors/font_color = Color(0.365346, 0.911409, 0, 1)
 theme_override_fonts/font = ExtResource("8_vef74")
