@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=6 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball.tscn" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://emsxc7axc1y4" path="res://PixelRobot.png" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://ddh1oqme01mty" path="res://player.gd" id="2_feb5d"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nbo"]
+radius = 55.0
+height = 140.0
 
 [node name="game" type="Node2D"]
 
@@ -12,6 +16,8 @@
 position = Vector2(0, -324)
 
 [node name="StaticBody2D-Ground" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D-Ground"]
 position = Vector2(-759, -102)
@@ -41,8 +47,15 @@ position = Vector2(-137, -441)
 [node name="RigidBody2D6" parent="." instance=ExtResource("1_80nbo")]
 position = Vector2(-134, -419)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-132, -205)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_feb5d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_80nbo")
+
+[node name="PixelRobotSprite" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_e2o6t")
