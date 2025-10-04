@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=9 format=3 uid="uid://bxh18be3ltwba"]
 
+[ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://d2xfc3jahpjip" path="res://PixelRobot.png" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://ddh1oqme01mty" path="res://player.gd" id="2_feb5d"]
 [ext_resource type="Script" uid="uid://cn5xbedqwpwh4" path="res://arms_center.gd" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://ba01lw0thklfc" path="res://robotArms.png" id="3_fc0e3"]
+[ext_resource type="Script" uid="uid://bc57nnpwvjbsf" path="res://ball_spawner.gd" id="5_ryrav"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -63,3 +65,10 @@ position = Vector2(0, -1)
 texture = ExtResource("2_e2o6t")
 
 [node name="BallSpawner" type="Node2D" parent="."]
+script = ExtResource("5_ryrav")
+ball_scene = ExtResource("1_80nbo")
+
+[node name="Timer" type="Timer" parent="BallSpawner"]
+autostart = true
+
+[connection signal="timeout" from="BallSpawner/Timer" to="BallSpawner" method="_on_timer_timeout"]
