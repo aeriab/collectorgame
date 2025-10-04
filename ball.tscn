@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnekgfju57wp5"]
+
+[ext_resource type="Texture2D" uid="uid://2us0y1eemms0" path="res://Cue_Ball_Temp.png" id="1_x8fbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_41u45"]
+radius = 9.0
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_41u45")
+
+[node name="CueBallTemp" type="Sprite2D" parent="."]
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("1_x8fbi")
