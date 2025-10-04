@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=16 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://c2reyie1t23i3" path="res://ball_collector.gd" id="1_eow3j"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://bc57nnpwvjbsf" path="res://ball stuff/ball_spawner.gd" id="5_ryrav"]
 [ext_resource type="FontFile" uid="uid://bj618srsmjpcn" path="res://Font/static/Outfit-Medium.ttf" id="8_vef74"]
 [ext_resource type="Script" uid="uid://bjtny0bsusemu" path="res://money_label.gd" id="9_hve3p"]
+[ext_resource type="Script" uid="uid://bm48iec6wypnm" path="res://cloud_spawner.gd" id="10_hve3p"]
+[ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud.tscn" id="11_mfdv2"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -135,6 +137,21 @@ theme_override_font_sizes/font_size = 500
 text = "Money: $0"
 script = ExtResource("9_hve3p")
 
+[node name="CloudSpawner" type="Node2D" parent="."]
+script = ExtResource("10_hve3p")
+cloud_scene = ExtResource("11_mfdv2")
+
+[node name="ColorRect" type="ColorRect" parent="CloudSpawner"]
+visible = false
+offset_left = -869.0
+offset_top = -695.0
+offset_right = 608.0
+offset_bottom = -452.0
+
+[node name="Timer" type="Timer" parent="CloudSpawner"]
+autostart = true
+
 [connection signal="area_entered" from="BallCollector" to="BallCollector" method="_on_area_entered"]
 [connection signal="body_entered" from="BallCollector" to="BallCollector" method="_on_body_entered"]
 [connection signal="timeout" from="BallSpawner/Timer" to="BallSpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="CloudSpawner/Timer" to="CloudSpawner" method="_on_timer_timeout"]

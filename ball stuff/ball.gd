@@ -17,6 +17,9 @@ func _on_timer_timeout():
 func _on_cpu_particles_2d_finished():
 	queue_free()
 
+func change_color(new_color: Color):
+	cue_ball_temp.modulate = new_color
+
 func collect():
 	Global.money += ball_money_value
 	var notification = POPUP_NOTIFICATION.instantiate()
