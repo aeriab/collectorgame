@@ -19,6 +19,14 @@ func _ready():
 	_speed = randf_range(Global.cloud_min_speed, Global.cloud_max_speed)
 	_lifetime = randf_range(Global.cloud_min_lifetime, Global.cloud_max_lifetime)
 	animate()
+	Global.stop_round.connect(_on_stop_round)
+	Global.start_round.connect(_on_start_round)
+
+func _on_stop_round():
+	timer.stop()
+
+func _on_start_round():
+	timer.start()
 
 func _process(delta: float):
 	position.x += _speed * delta

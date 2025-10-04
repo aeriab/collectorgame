@@ -14,6 +14,15 @@ extends Node2D
 @export var spawn_y_position: float = -800.0
 @onready var timer = $Timer
 
+func _ready():
+	Global.stop_round.connect(_on_stop_round)
+	Global.start_round.connect(_on_start_round)
+
+func _on_stop_round():
+	timer.stop()
+
+func _on_start_round():
+	timer.start()
 
 # This function runs every time the Timer node times out.
 # You must connect your Timer's "timeout" signal to this function.

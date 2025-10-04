@@ -11,6 +11,14 @@ extends Node2D
 func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	_on_timer_timeout()
+	Global.stop_round.connect(_on_stop_round)
+	Global.start_round.connect(_on_start_round)
+
+func _on_stop_round():
+	timer.stop()
+
+func _on_start_round():
+	timer.start()
 
 func _on_timer_timeout():
 	var cloud_instance = cloud_scene.instantiate()
