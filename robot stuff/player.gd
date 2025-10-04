@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-const SPEED = 160.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var robot_arms = $RobotSprites/ArmsCenter/RobotArms
 @onready var pixel_robot = $RobotSprites/PixelRobot
@@ -24,8 +23,8 @@ func _physics_process(delta):
 	
 	# Apply movement
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * Global.move_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, Global.move_speed)
 	
 	move_and_slide()

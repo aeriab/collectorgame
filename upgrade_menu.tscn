@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh110c2nc4qc5"]
+[gd_scene load_steps=11 format=3 uid="uid://dh110c2nc4qc5"]
 
 [ext_resource type="Script" uid="uid://bofvm52pc1d3b" path="res://upgrade_menu.gd" id="1_jakhq"]
 [ext_resource type="FontFile" uid="uid://cfmdgx1ipq6kv" path="res://Font/static/Outfit-Light.ttf" id="1_skwsl"]
 [ext_resource type="FontFile" uid="uid://2qrsylqregob" path="res://Font/static/Outfit-Regular.ttf" id="2_jakhq"]
+[ext_resource type="Script" uid="uid://mckrtkv1wa8y" path="res://reroll_label.gd" id="4_gi4mh"]
+[ext_resource type="Script" uid="uid://dio8yvvq57ggw" path="res://upgrade_button.gd" id="4_l2f4v"]
+[ext_resource type="Script" uid="uid://ce4c150ejk5c" path="res://reroll_button.gd" id="4_u7ydm"]
 
 [sub_resource type="Animation" id="Animation_gi4mh"]
 resource_name = "slide_in"
@@ -90,8 +93,9 @@ theme_override_font_sizes/font_size = 50
 text = "Upgrade 1
 +10% grey spawning
 - 10% cloud spawning"
+script = ExtResource("4_l2f4v")
 
-[node name="CostLabel1" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton1"]
+[node name="CostLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton1"]
 modulate = Color(0.584314, 1, 0.603922, 1)
 layout_mode = 0
 offset_left = 1.0
@@ -110,8 +114,9 @@ theme_override_font_sizes/font_size = 50
 text = "Upgrade 2
 + 20% golden spawning
 + 10% movement speed"
+script = ExtResource("4_l2f4v")
 
-[node name="CostLabel2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton2"]
+[node name="CostLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton2"]
 modulate = Color(0.584314, 1, 0.603922, 1)
 offset_left = 1.0
 offset_top = -92.0
@@ -129,8 +134,9 @@ theme_override_font_sizes/font_size = 50
 text = "Upgrade 3
 + 10% collector size
 - 5% movement speed"
+script = ExtResource("4_l2f4v")
 
-[node name="CostLabel3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton3"]
+[node name="CostLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton3"]
 modulate = Color(0.584314, 1, 0.603922, 1)
 offset_left = 1.0
 offset_top = -92.0
@@ -151,8 +157,9 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_jakhq")
 theme_override_font_sizes/font_size = 100
 text = "Reroll"
+script = ExtResource("4_u7ydm")
 
-[node name="CostLabel3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerShop/RerollButton"]
+[node name="RerollLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerShop/RerollButton"]
 modulate = Color(0.584314, 1, 0.603922, 1)
 offset_left = 1.0
 offset_top = -92.0
@@ -162,6 +169,7 @@ theme_override_fonts/font = ExtResource("1_skwsl")
 theme_override_font_sizes/font_size = 75
 text = "$100"
 horizontal_alignment = 1
+script = ExtResource("4_gi4mh")
 
 [node name="NextRoundButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainerShop"]
 layout_mode = 2
@@ -174,4 +182,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_u7ydm")
 }
 
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton1" to="PanelContainer/VBoxContainer/HBoxContainerUpgrades/UpgradeButton1" method="_on_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerShop/RerollButton" to="PanelContainer/VBoxContainer/HBoxContainerShop/RerollButton" method="_on_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainerShop/NextRoundButton" to="." method="_on_next_round_button_pressed"]
