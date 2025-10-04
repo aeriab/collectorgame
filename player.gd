@@ -16,10 +16,10 @@ func _physics_process(delta):
 	
 	# Flip the Sprite
 	if direction > 0:
-		robot_arms.flip_h = true
+		#robot_arms.flip_h = true
 		pixel_robot.flip_h = true
 	elif direction < 0:
-		robot_arms.flip_h = false
+		#robot_arms.flip_h = false
 		pixel_robot.flip_h = false
 	
 	# Apply movement

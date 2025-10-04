@@ -13,11 +13,13 @@ radius = 9.0
 _data = [Vector2(0, 1), 0.0, -0.150142, 0, 0, Vector2(1, 0), -3.43593, 0.0, 0, 0]
 point_count = 2
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["Ball"]]
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_41u45")
-gravity_scale = 0.8
+gravity_scale = 0.5
+continuous_cd = 2
 script = ExtResource("1_41u45")
+collect_color = Color(0.662184, 1, 0.633765, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_41u45")
