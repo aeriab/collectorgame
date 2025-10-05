@@ -141,13 +141,13 @@ func _on_pressed() -> void:
 		modulate.a = 0.0
 		disabled = true
 		if chosen_upgrade.type == "mult":
-			Global.set(chosen_upgrade.target_global_var1, Global.get(chosen_upgrade.target_global_var1) * chosen_upgrade.value)
+			Global.set(chosen_upgrade.target_global_var1, min(100,max(0.01,Global.get(chosen_upgrade.target_global_var1) + (chosen_upgrade.value - 1.0))))
 		elif chosen_upgrade.type == "flat":
-			Global.set(chosen_upgrade.target_global_var1, Global.get(chosen_upgrade.target_global_var1) + chosen_upgrade.value)
+			Global.set(chosen_upgrade.target_global_var1, min(2000,max(0.01,Global.get(chosen_upgrade.target_global_var1) + chosen_upgrade.value)))
 		
 		if "stat2" in chosen_upgrade:
 			if chosen_upgrade.type2 == "mult":
-				Global.set(chosen_upgrade.target_global_var2, Global.get(chosen_upgrade.target_global_var2) * chosen_upgrade.value2)
+				Global.set(chosen_upgrade.target_global_var2, min(100,max(0.01,Global.get(chosen_upgrade.target_global_var2) + (chosen_upgrade.value2 - 1.0))))
 			elif chosen_upgrade.type == "flat":
-				Global.set(chosen_upgrade.target_global_var2, Global.get(chosen_upgrade.target_global_var2) + chosen_upgrade.value2)
+				Global.set(chosen_upgrade.target_global_var2, min(2000,max(0.01,Global.get(chosen_upgrade.target_global_var2) + chosen_upgrade.value2)))
 		

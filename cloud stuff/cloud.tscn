@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cr2lqxyuhjm4c" path="res://cloud stuff/cloud.gd" id="1_b3oxr"]
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="2_fcyt7"]
-[ext_resource type="Texture2D" uid="uid://cp63enayvg4v7" path="res://cloud stuff/cloud1.png" id="2_qaedo"]
+[ext_resource type="Texture2D" uid="uid://cj1ubx42m2xkl" path="res://cloud stuff/cloud1.png" id="2_qaedo"]
 
 [node name="Cloud" type="Node2D"]
 script = ExtResource("1_b3oxr")
@@ -10,6 +10,8 @@ ball_scene = ExtResource("2_fcyt7")
 cloud_ball_color = Color(0.783427, 0.918456, 1, 1)
 
 [node name="CloudSprite" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+scale = Vector2(0.232956, 0.232956)
 texture = ExtResource("2_qaedo")
 
 [node name="ColorRect" type="ColorRect" parent="."]

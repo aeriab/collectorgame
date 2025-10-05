@@ -14,6 +14,8 @@ var is_elixer: bool = false
 var is_gold: bool = false
 
 func _ready():
+	if get_tree().get_node_count() > 150000:
+		queue_free()
 	var tween = create_tween()
 	
 	

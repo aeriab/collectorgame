@@ -1,13 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=33 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cxhhvpw1tdkfl" path="res://game.gd" id="1_215e1"]
 [ext_resource type="Script" uid="uid://c2reyie1t23i3" path="res://ball_collector.gd" id="1_eow3j"]
 [ext_resource type="Script" uid="uid://c8f40lo70osfv" path="res://collector.gd" id="2_80cx4"]
-[ext_resource type="Texture2D" uid="uid://d2xfc3jahpjip" path="res://robot stuff/PixelRobot.png" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://ddh1oqme01mty" path="res://robot stuff/player.gd" id="2_feb5d"]
+[ext_resource type="Texture2D" uid="uid://bmjbcrrnpmft4" path="res://environment.png" id="2_xa8c5"]
 [ext_resource type="Script" uid="uid://cn5xbedqwpwh4" path="res://robot stuff/arms_center.gd" id="3_7jktm"]
-[ext_resource type="Texture2D" uid="uid://ba01lw0thklfc" path="res://robot stuff/robotArms.png" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://bc57nnpwvjbsf" path="res://ball stuff/ball_spawner.gd" id="5_ryrav"]
 [ext_resource type="Texture2D" uid="uid://cn2k0bpn1j26k" path="res://GameOver.png" id="8_boyg6"]
 [ext_resource type="FontFile" uid="uid://bj618srsmjpcn" path="res://Font/static/Outfit-Medium.ttf" id="8_vef74"]
@@ -15,9 +14,12 @@
 [ext_resource type="Script" uid="uid://bjtny0bsusemu" path="res://money_label.gd" id="9_hve3p"]
 [ext_resource type="Script" uid="uid://bm48iec6wypnm" path="res://cloud stuff/cloud_spawner.gd" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud stuff/cloud.tscn" id="11_mfdv2"]
+[ext_resource type="Texture2D" uid="uid://dxwappvbwwk0s" path="res://bigRobotArms.png" id="11_vaj68"]
+[ext_resource type="Texture2D" uid="uid://n4xvmxsukf8h" path="res://BigRobot.png" id="12_i2p71"]
 [ext_resource type="Script" uid="uid://wyoq17w4yjsh" path="res://progress_bar.gd" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://dh110c2nc4qc5" path="res://upgrade stuff/upgrade_menu.tscn" id="13_lc2xo"]
 [ext_resource type="FontFile" uid="uid://2qrsylqregob" path="res://Font/static/Outfit-Regular.ttf" id="14_7sc4i"]
+[ext_resource type="Script" uid="uid://hhc0tcib6qd3" path="res://progress_label.gd" id="17_i2p71"]
 [ext_resource type="Script" uid="uid://cdtpnw5mtfqwj" path="res://round_quota.gd" id="18_rvswv"]
 [ext_resource type="FontFile" uid="uid://dh6exrn38jeku" path="res://Font/static/Outfit-Bold.ttf" id="20_e36ub"]
 [ext_resource type="Script" uid="uid://btosntu62fbji" path="res://try_again_button.gd" id="21_hb5m1"]
@@ -43,6 +45,12 @@ height = 140.0
 [node name="game" type="Node2D"]
 script = ExtResource("1_215e1")
 
+[node name="Environment" type="Sprite2D" parent="."]
+z_index = -3
+position = Vector2(61.874, -624.383)
+scale = Vector2(0.317236, 0.317236)
+texture = ExtResource("2_xa8c5")
+
 [node name="GameStuff" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="GameStuff"]
@@ -53,14 +61,29 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/StaticBody2D-Ground"]
-position = Vector2(-759, -102)
+position = Vector2(-759, -84.7273)
 shape = SubResource("WorldBoundaryShape2D_e2o6t")
 
 [node name="ColorRect" type="ColorRect" parent="GameStuff/StaticBody2D-Ground"]
+visible = false
 offset_left = -759.0
 offset_top = -102.0
 offset_right = 700.0
 offset_bottom = 143.0
+
+[node name="StaticBody2D-Ground2" type="StaticBody2D" parent="GameStuff"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="ColorRect" type="ColorRect" parent="GameStuff/StaticBody2D-Ground2"]
+visible = false
+offset_left = -759.0
+offset_top = -102.0
+offset_right = 700.0
+offset_bottom = 143.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameStuff/StaticBody2D-Ground2"]
+polygon = PackedVector2Array(-731, -99.2, -573, -101.5, -538, -104, -504.5, -103, -483.5, -100.5, -434.5, -101.5, -381, -99, -369.5, -102, -354, -101.5, -344, -100, -328, -100.5, -318.5, -100, -306, -99, -282.5, -97.5, -272, -94.5, -185.5, -95.5, -159.5, -93, -130.5, -93, -92, -92.5, -73.5, -92.5, -48.75, -92.75, -14.5, -94.75, 32.75, -97.75, 67, -99.75, 81, -102.4, 101.4, -100.8, 123.2, -99, 142, -99.4, 162.5, -97.625, 181.5, -98, 194.75, -95.75, 215.625, -95.125, 243.167, -94, 277.333, -97, 296.333, -95.3333, 392.333, -95.6667, 407, -94.3333, 460.667, -95.3333, 493.667, -97.6667, 525, -97.6667, 581.333, -98.6667, 855.667, -92, 2796, -86, 2826, 1254, -4128, 1324, -4394, -216, -1160, -153, -969.5, -105.5, -782, -97.5)
 
 [node name="Collector" type="Node2D" parent="GameStuff"]
 position = Vector2(0, -102)
@@ -106,6 +129,7 @@ shape = SubResource("RectangleShape2D_j5wjh")
 
 [node name="collectorBottom" type="ColorRect" parent="GameStuff/Collector"]
 offset_left = -58.0
+offset_top = -14.0
 offset_right = 61.0
 offset_bottom = 25.0
 color = Color(0.698039, 1, 0.670588, 1)
@@ -216,7 +240,8 @@ script = ExtResource("3_7jktm")
 
 [node name="RobotArms" type="Sprite2D" parent="Player/RobotSprites/ArmScalePoint/ArmsCenter"]
 position = Vector2(-2.99998, 52)
-texture = ExtResource("3_fc0e3")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("11_vaj68")
 
 [node name="ArmsAndBar" type="CharacterBody2D" parent="Player/RobotSprites/ArmScalePoint/ArmsCenter"]
 collision_layer = 4
@@ -224,11 +249,12 @@ collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/RobotSprites/ArmScalePoint/ArmsCenter/ArmsAndBar"]
 position = Vector2(130, 252)
-polygon = PackedVector2Array(-232, -311, -201, -298, -168, -290, -124, -286, -92, -289, -59, -296, -42, -304, -29, -309, -25, -306, -28, -301, -46, -295, -66, -287, -77, -285, -79, -272, -86, -267, -88, -239, -96, -228, -108, -217, -127, -212, -148, -216, -162, -226, -174, -236, -181, -249, -183, -270, -191, -278, -192, -288, -207, -293, -223, -300, -234, -304, -235, -309)
+polygon = PackedVector2Array(-230.948, -311.092, -220.567, -307.108, -209.056, -302.048, -189.294, -294.952, -168, -290, -151.399, -287.583, -137.557, -287.004, -114.241, -285.794, -107.82, -286.531, -91.4494, -289.237, -58.6625, -297.022, -49.0835, -301.724, -42, -304, -28.9432, -309.23, -27.2967, -308.852, -25.9472, -307.988, -25, -306, -25.0535, -303.974, -26.0159, -302.41, -27.5798, -301.358, -44.452, -295.078, -55.2309, -290.025, -66, -287, -76.9151, -284.636, -75.7658, -282.203, -75.8048, -278.46, -77.6371, -273.977, -80.834, -271.131, -86.487, -268.987, -86.0972, -264.308, -86.6374, -249.538, -88.1813, -239.042, -90.9482, -233.373, -94.9307, -227.278, -101.675, -220.516, -107.66, -217.002, -115.688, -214.133, -127, -212, -137.067, -213.413, -148, -216, -154.76, -219.648, -162.088, -225.599, -167.903, -230.628, -172.759, -236.136, -176.75, -242.232, -180.452, -250.825, -182.515, -265.141, -182.411, -271.011, -183.896, -271.443, -185.353, -272.253, -187.243, -273.548, -188.611, -274.866, -190.347, -278.337, -191.65, -282.922, -191.117, -287.327, -193.607, -288.251, -205.804, -292.431, -211.282, -294.63, -214.65, -296.035, -222.955, -299.607, -229.144, -301.819, -234, -304, -235.485, -305.653, -235.685, -307.784, -234.783, -309.689, -233.079, -310.942)
 
 [node name="PixelRobot" type="Sprite2D" parent="Player/RobotSprites"]
 position = Vector2(0, -1)
-texture = ExtResource("2_e2o6t")
+scale = Vector2(0.10746, 0.10746)
+texture = ExtResource("12_i2p71")
 
 [node name="GameGoingStuff" type="Node2D" parent="."]
 
@@ -258,26 +284,27 @@ script = ExtResource("12_iotsf")
 
 [node name="ProgressLabel" type="Label" parent="GameGoingStuff/ProgressBar"]
 layout_mode = 0
-offset_left = 388.626
+offset_left = 842.512
 offset_top = -397.879
-offset_right = 2468.63
-offset_bottom = -19.8792
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_right = 2922.51
+offset_bottom = -19.8789
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("14_7sc4i")
 theme_override_font_sizes/font_size = 300
-text = "Round Progress"
+text = "Round 1"
+script = ExtResource("17_i2p71")
 
 [node name="UpgradeMenu" parent="GameGoingStuff" instance=ExtResource("13_lc2xo")]
 
 [node name="RoundQuota" type="Label" parent="GameGoingStuff"]
 offset_left = -11659.0
-offset_top = -59.0
+offset_top = -62.3
 offset_right = 12341.0
-offset_bottom = 571.0
-scale = Vector2(0.0565726, 0.0565726)
+offset_bottom = 567.7
+scale = Vector2(0.0687281, 0.0687281)
 pivot_offset = Vector2(12000, 0)
-theme_override_colors/font_color = Color(0.905882, 0, 0, 1)
-theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_colors/font_color = Color(1, 0.176471, 0.172549, 1)
+theme_override_fonts/font = ExtResource("20_e36ub")
 theme_override_font_sizes/font_size = 500
 text = "Round Quota: $0"
 horizontal_alignment = 1
@@ -318,18 +345,93 @@ script = ExtResource("21_hb5m1")
 [node name="NextRoundStuff" type="Node2D" parent="."]
 
 [node name="RoundTitle" type="Label" parent="NextRoundStuff"]
+modulate = Color(1, 1, 1, 0)
 offset_left = -12001.0
 offset_top = -489.0
 offset_right = 11999.0
 offset_bottom = 141.0
 scale = Vector2(0.0975884, 0.0975884)
 pivot_offset = Vector2(12000, 0)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.402046, 0.485695, 0.997795, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_outline_size = 70
 theme_override_fonts/font = ExtResource("8_vef74")
 theme_override_font_sizes/font_size = 1000
 text = "Round 1"
 horizontal_alignment = 1
 script = ExtResource("22_x5p1p")
+
+[node name="Instruction1" type="Label" parent="NextRoundStuff"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12000.1
+offset_top = -489.991
+offset_right = 11999.9
+offset_bottom = 1177.01
+scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
+theme_override_colors/font_color = Color(0.402046, 0.485695, 0.997795, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_outline_size = 70
+theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_font_sizes/font_size = 660
+text = "Use arrow keys or WASD
+to move and rotate"
+horizontal_alignment = 1
+
+[node name="Instruction2" type="Label" parent="NextRoundStuff"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12000.1
+offset_top = -493.212
+offset_right = 11999.9
+offset_bottom = 1173.79
+scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
+theme_override_colors/font_color = Color(0.402046, 0.485695, 0.997795, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_outline_size = 70
+theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_font_sizes/font_size = 660
+text = "Collect dust and rain
+to earn money"
+horizontal_alignment = 1
+
+[node name="Instruction3" type="Label" parent="NextRoundStuff"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12000.1
+offset_top = -496.433
+offset_right = 11999.9
+offset_bottom = 1170.57
+scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
+theme_override_colors/font_color = Color(0.402046, 0.485695, 0.997795, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_outline_size = 70
+theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_font_sizes/font_size = 660
+text = "You must have more money than 
+the round quota to survive"
+horizontal_alignment = 1
+
+[node name="Instruction4" type="Label" parent="NextRoundStuff"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -12000.1
+offset_top = -473.959
+offset_right = 11999.9
+offset_bottom = 1193.04
+scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
+theme_override_colors/font_color = Color(0.402046, 0.485695, 0.997795, 1)
+theme_override_constants/shadow_offset_x = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_constants/shadow_outline_size = 70
+theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_font_sizes/font_size = 660
+text = "Survive round 16 to win the game"
+horizontal_alignment = 1
 
 [node name="VictoryStuff" type="Node2D" parent="."]
 visible = false

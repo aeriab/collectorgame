@@ -1,6 +1,14 @@
 # File: Cloud.gd
 extends Node2D
 
+const CLOUD_1 = preload("res://cloud stuff/cloud1.png")
+const CLOUD_2 = preload("res://cloud stuff/cloud2.png")
+const CLOUD_3 = preload("res://cloud stuff/cloud3.png")
+const CLOUD_4 = preload("res://cloud stuff/cloud4.png")
+const CLOUD_5 = preload("res://cloud stuff/cloud5.png")
+const CLOUD_6 = preload("res://cloud stuff/cloud6.png")
+
+
 var fade_in_duration: float = 4.0
 var fade_out_duration: float = 5.0
 
@@ -12,10 +20,25 @@ var _lifetime: float
 @onready var spawn_area = $ColorRect
 @export var ball_scene: PackedScene
 @export var cloud_ball_color: Color
+@onready var cloud_sprite = $CloudSprite
 
 func _ready():
+	var rand_cloud_index = randi_range(1,6)
+	if rand_cloud_index == 1:
+		cloud_sprite.texture = CLOUD_1
+	elif rand_cloud_index == 2:
+		cloud_sprite.texture = CLOUD_2
+	elif rand_cloud_index == 3:
+		cloud_sprite.texture = CLOUD_3
+	elif rand_cloud_index == 4:
+		cloud_sprite.texture = CLOUD_4
+	elif rand_cloud_index == 5:
+		cloud_sprite.texture = CLOUD_5
+	elif rand_cloud_index == 6:
+		cloud_sprite.texture = CLOUD_6
+	
 	var randSize = randf_range(Global.cloud_min_size, Global.cloud_max_size)
-	scale = Vector2(randSize,randSize)
+	scale = Vector2(randSize * 0.5,randSize * 0.5)
 	_speed = randf_range(Global.cloud_min_speed, Global.cloud_max_speed)
 	_lifetime = randf_range(Global.cloud_min_lifetime, Global.cloud_max_lifetime)
 	animate()
