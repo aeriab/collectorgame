@@ -10,8 +10,16 @@ const POPUP_NOTIFICATION = preload("res://popup_notification.tscn")
 var ball_money_value: float = 1.0
 
 var is_rain: bool = false
+var is_elixer: bool = false
+var is_gold: bool = false
 
 func _ready():
+	if Global.gold_chance >= randf_range(0.0,100.0):
+		is_gold = true
+		modulate = Color("#FFD700")
+	else:
+		modulate = Color("#ac9c86")
+	
 	physics_material_override.bounce = Global.dust_bounce
 	
 	var random_scale: float = randf_range(Global.dust_size * 0.66,Global.dust_size * 1.33)
@@ -48,8 +56,12 @@ func change_color(new_color: Color):
 func collect():
 	if is_rain:
 		ball_money_value = Global.rain_value
+		if is_elixer:
+			ball_money_value = Global.rain_value * 10
 	else:
 		ball_money_value = Global.dust_value
+		if is_gold:
+			ball_money_value = Global.dust_value * 10
 	Global.money += ball_money_value
 	var notification = POPUP_NOTIFICATION.instantiate()
 	notification.global_position = self.global_position

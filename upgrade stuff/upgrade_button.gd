@@ -17,49 +17,60 @@ var common_upgrades = [
 	{"name": "Drips", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.9, "type": "mult"},
 	{"name": "Grains", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 0.9, "type": "mult"},
 	{"name": "Popper", "stat1": "Dust bounce", "target_global_var1": "base_dust_bounce", "value": 25, "type": "flat"},
-	{"name": "Beach ball", "stat1": "Rain bounce", "target_global_var1": "base_rain_bounce", "value": 25, "type": "flat"},
+	{"name": "Beach Ball", "stat1": "Rain bounce", "target_global_var1": "base_rain_bounce", "value": 25, "type": "flat"},
 ]
 
 var uncommon_upgrades = [
-	{"name": "Wrench", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 20, "type": "flat"},
-	{"name": "Wind vane", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 20, "type": "flat"},
-	{"name": "Water bottle", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 20, "type": "flat"},
-	{"name": "Mud", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 20, "type": "flat"},
-	{"name": "Lasting lint", "stat1": "Dust lifetime", "target_global_var1": "base_dust_lifetime", "value": 40, "type": "flat"},
-	{"name": "Stable concoction", "stat1": "Rain lifetime", "target_global_var1": "modifier_rain_lifetime", "value": 1.3, "type": "mult"},
+	#{"name": "Wrench", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 20, "type": "flat"},
+	#{"name": "Wind Vane", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 20, "type": "flat"},
+	#{"name": "Water Bottle", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 20, "type": "flat"},
+	#{"name": "Drought", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 40, "type": "flat", "stat2": "Rain rate", "target_global_var2": "modifier_rain_rate", "value2": 0.8, "type2": "mult"},
+	#{"name": "Lasting Lint", "stat1": "Dust lifetime", "target_global_var1": "base_dust_lifetime", "value": 40, "type": "flat"},
+	#{"name": "Stable Concoction", "stat1": "Rain lifetime", "target_global_var1": "modifier_rain_lifetime", "value": 1.3, "type": "mult"},
+	{"name": "Unstable Concoction", "stat1": "Elixer chance", "target_global_var1": "base_elixer_chance", "value": 40, "type": "flat"},
+	{"name": "Gold Pan", "stat1": "Gold chance", "target_global_var1": "base_gold_chance", "value": 40, "type": "flat"},
+	
 ]
 
 var rare_upgrades = [
-	#{"name": "Screwdriver", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 50, "type": "flat"},
-	{"name": "Barometer", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 1.2, "type": "mult"},
-	{"name": "Watering can", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 50, "type": "flat"},
-	{"name": "Soil", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.2, "type": "mult"},
-	{"name": "Pay dirt", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 100.0, "type": "flat"},
-	{"name": "Honey", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 100.0, "type": "flat"},
-	{"name": "Nectar", "stat1": "Rain lifetime", "target_global_var1": "base_rain_lifetime", "value": 100.0, "type": "flat"},
-	{"name": "Granite", "stat1": "Soil lifetime", "target_global_var1": "modifier_soil_lifetime", "value": 2.0, "type": "mult"},
+	##{"name": "Screwdriver", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 50, "type": "flat"},
+	#{"name": "Barometer", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 1.2, "type": "mult"},
+	#{"name": "Watering Can", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 50, "type": "flat"},
+	#{"name": "Soil", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.2, "type": "mult"},
+	#{"name": "Pay Dirt", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 100.0, "type": "flat", "stat2": "Gold chance", "target_global_var2": "modifier_gold_chance", "value2": 1.5, "type2": "mult"},
+	#{"name": "Honey", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 150.0, "type": "flat", "stat2": "Movement speed", "target_global_var2": "modifier_movement_speed", "value2": 0.8, "type2": "mult"},
+	#{"name": "Nectar", "stat1": "Rain lifetime", "target_global_var1": "base_rain_lifetime", "value": 100.0, "type": "flat"},
+	#{"name": "Granite", "stat1": "Soil lifetime", "target_global_var1": "modifier_soil_lifetime", "value": 2.0, "type": "mult"},
+	#{"name": "Mining Gear", "stat1": "Gold chance", "target_global_var1": "base_gold_chance", "value": 100, "type": "flat"},
+	{"name": "Juice Spill", "stat1": "Elixer chance", "target_global_var1": "modifier_elixer_chance", "value": 2.0, "type": "mult"},
+	{"name": "Overgrow", "stat1": "Robot size", "target_global_var1": "modifier_robot_size", "value": 1.3, "type": "mult", "stat2": "Movement speed", "target_global_var2": "modifier_movement_speed", "value2": 0.9, "type2": "mult"},
+	
 ]
 
 var epic_upgrades = [
-	{"name": "Compressed air", "stat1": "Movement speed", "target_global_var1": "modifier_movement_speed", "value": 1.5, "type": "mult"},
+	{"name": "Compressed Air", "stat1": "Movement speed", "target_global_var1": "modifier_movement_speed", "value": 1.5, "type": "mult"},
 	{"name": "Propeller", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 100, "type": "flat"},
-	{"name": "Rain barrel", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 1.5, "type": "mult"},
+	{"name": "Rain Barrel", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 1.5, "type": "mult"},
 	{"name": "Earth", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.5, "type": "mult"},
-	{"name": "Fancy fluff", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 200.0, "type": "flat"},
-	{"name": "Royal jelly", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 200.0, "type": "flat"},
+	{"name": "Fancy Fluff", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 200.0, "type": "flat"},
+	{"name": "Royal Jelly", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 200.0, "type": "flat"},
 	{"name": "Tumbleweed", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 2.0, "type": "mult", "stat2": "Dust value", "target_global_var2": "modifier_dust_value", "value2": 2.0, "type2": "mult"},
-	{"name": "Micro drops", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.6, "type": "mult", "stat2": "Rain rate", "target_global_var2": "modifier_rain_spawn", "value2": 1.3, "type2": "mult"},
+	{"name": "Micro Drops", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.6, "type": "mult", "stat2": "Rain rate", "target_global_var2": "modifier_rain_spawn", "value2": 1.3, "type2": "mult"},
+	
 ]
 
 var legendary_upgrades = [
 	#{"name": "Engine", "stat1": "Movement speed", "target_global_var1": "modifier_movement_speed", "value": 2.0, "type": "mult"},
-	{"name": "Weather balloon", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 2.0, "type": "mult"},
-	{"name": "Water tower", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 2.0, "type": "mult"},
-	{"name": "Terra firma", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 500, "type": "flat"},
-	{"name": "Lavish lint", "stat1": "Dust value", "target_global_var1": "modifier_dust_value", "value": 1.5, "type": "mult", "stat2": "Dust lifetime", "target_global_var2": "modifier_dust_lifetime", "value2": 2.0, "type2": "mult"},
-	{"name": "Universal solvent", "stat1": "Rain value", "target_global_var1": "modifier_rain_value", "value": 1.5, "type": "mult", "stat2": "Rain lifetime", "target_global_var2": "modifier_rain_lifetime", "value2": 2.0, "type2": "mult"},
+	{"name": "Weather Balloon", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 2.0, "type": "mult"},
+	{"name": "Water Tower", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 2.0, "type": "mult"},
+	{"name": "Terra Firma", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 500, "type": "flat", "stat2": "Gold chance", "target_global_var2": "base_gold_chance", "value2": 500, "type2": "flat"},
+	{"name": "Lavish Lint", "stat1": "Dust value", "target_global_var1": "modifier_dust_value", "value": 1.5, "type": "mult", "stat2": "Dust lifetime", "target_global_var2": "modifier_dust_lifetime", "value2": 2.0, "type2": "mult"},
+	{"name": "Universal Solvent", "stat1": "Rain value", "target_global_var1": "modifier_rain_value", "value": 1.5, "type": "mult", "stat2": "Rain lifetime", "target_global_var2": "modifier_rain_lifetime", "value2": 2.0, "type2": "mult"},
 	{"name": "Pancake", "stat1": "Collector width", "target_global_var1": "modifier_collector_width", "value": 1.5, "type": "mult", "stat2": "Collector height", "target_global_var2": "modifier_collector_height", "value2": 0.6, "type2": "mult"},
-
+	{"name": "Leg Day", "stat1": "Robot size", "target_global_var1": "modifier_robot_size", "value": 1.4, "type": "mult", "stat2": "Arms size", "target_global_var2": "modifier_arms_size", "value2": 0.8, "type2": "mult"},
+	{"name": "Popeye's Fury", "stat1": "Arms size", "target_global_var1": "modifier_arms_size", "value": 1.7, "type": "mult", "stat2": "Robot size", "target_global_var2": "modifier_robot_size", "value2": 0.9, "type2": "mult"},
+	{"name": "Worth The Squeeze", "stat1": "Elixer chance", "target_global_var1": "base_elixer_chance", "value": 999, "type": "flat", "stat2": "Rain rate", "target_global_var2": "modifier_rain_rate", "value2": 0.5, "type2": "mult"},
+	
 ]
 
 

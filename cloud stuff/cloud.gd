@@ -53,6 +53,11 @@ func _on_timer_timeout():
 	
 	ball_instance.physics_material_override.bounce = Global.rain_bounce
 	
+	ball_instance.modulate = Color("#a2dfff")
+	if Global.elixer_chance >= randf_range(0.0,100.0):
+		ball_instance.is_elixer = true
+		ball_instance.modulate = Color("#ff6ef6")
+	
 	var random_lifetime: float = randf_range(Global.rain_lifetime * 0.66,Global.rain_lifetime * 1.33)
 	ball_instance.initialize_lifetime(random_lifetime)
 	ball_instance.change_color(cloud_ball_color)

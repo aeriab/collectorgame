@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=23 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cxhhvpw1tdkfl" path="res://game.gd" id="1_215e1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ba01lw0thklfc" path="res://robot stuff/robotArms.png" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://bc57nnpwvjbsf" path="res://ball stuff/ball_spawner.gd" id="5_ryrav"]
 [ext_resource type="FontFile" uid="uid://bj618srsmjpcn" path="res://Font/static/Outfit-Medium.ttf" id="8_vef74"]
+[ext_resource type="Script" uid="uid://b63d7t0h1mf26" path="res://arm_scale_point.gd" id="9_e8heu"]
 [ext_resource type="Script" uid="uid://bjtny0bsusemu" path="res://money_label.gd" id="9_hve3p"]
 [ext_resource type="Script" uid="uid://bm48iec6wypnm" path="res://cloud stuff/cloud_spawner.gd" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud stuff/cloud.tscn" id="11_mfdv2"]
@@ -137,7 +138,7 @@ rotation = -1.309
 shape = SubResource("WorldBoundaryShape2D_215e1")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-132, -205)
+position = Vector2(-193, -183)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("2_feb5d")
@@ -148,19 +149,24 @@ shape = SubResource("CapsuleShape2D_80nbo")
 
 [node name="RobotSprites" type="Node2D" parent="Player"]
 
-[node name="ArmsCenter" type="Node2D" parent="Player/RobotSprites"]
-position = Vector2(2, -47)
+[node name="ArmScalePoint" type="Node2D" parent="Player/RobotSprites"]
+position = Vector2(0, -12)
+script = ExtResource("9_e8heu")
+
+[node name="ArmsCenter" type="Node2D" parent="Player/RobotSprites/ArmScalePoint"]
+position = Vector2(3.32934, -35.1959)
+scale = Vector2(0.95, 0.95)
 script = ExtResource("3_7jktm")
 
-[node name="RobotArms" type="Sprite2D" parent="Player/RobotSprites/ArmsCenter"]
+[node name="RobotArms" type="Sprite2D" parent="Player/RobotSprites/ArmScalePoint/ArmsCenter"]
 position = Vector2(-2.99998, 52)
 texture = ExtResource("3_fc0e3")
 
-[node name="ArmsAndBar" type="CharacterBody2D" parent="Player/RobotSprites/ArmsCenter"]
+[node name="ArmsAndBar" type="CharacterBody2D" parent="Player/RobotSprites/ArmScalePoint/ArmsCenter"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/RobotSprites/ArmsCenter/ArmsAndBar"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/RobotSprites/ArmScalePoint/ArmsCenter/ArmsAndBar"]
 position = Vector2(130, 252)
 polygon = PackedVector2Array(-232, -311, -201, -298, -168, -290, -124, -286, -92, -289, -59, -296, -42, -304, -29, -309, -25, -306, -28, -301, -46, -295, -66, -287, -77, -285, -79, -272, -86, -267, -88, -239, -96, -228, -108, -217, -127, -212, -148, -216, -162, -226, -174, -236, -181, -249, -183, -270, -191, -278, -192, -288, -207, -293, -223, -300, -234, -304, -235, -309)
 
