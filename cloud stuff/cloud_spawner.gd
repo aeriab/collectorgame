@@ -9,7 +9,7 @@ extends Node2D
 @onready var timer: Timer = $Timer
 
 func _ready():
-	timer.timeout.connect(_on_timer_timeout)
+	#timer.timeout.connect(_on_timer_timeout)
 	_on_timer_timeout()
 	Global.stop_round.connect(_on_stop_round)
 	Global.start_round.connect(_on_start_round)
@@ -26,6 +26,6 @@ func _on_timer_timeout():
 	var spawn_area_rect = spawn_area.get_rect()
 	var random_x = randf_range(spawn_area_rect.position.x, spawn_area_rect.end.x)
 	var random_y = randf_range(spawn_area_rect.position.y, spawn_area_rect.end.y)
-	get_parent().add_child(cloud_instance)
+	get_parent().add_child.call_deferred(cloud_instance)
 	cloud_instance.global_position = global_position + Vector2(random_x, random_y)
 	timer.wait_time = randf_range(0.01, Global.cloud_spawn_rate)

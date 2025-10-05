@@ -37,7 +37,7 @@ func _ready():
 
 @onready var timer = $Timer
 func initialize_lifetime(lifetime_val):
-	print(lifetime_val)
+	#print(lifetime_val)
 	timer.stop()
 	timer.wait_time = lifetime_val
 	timer.start()
@@ -71,6 +71,10 @@ func collect():
 			ball_money_value = Global.dust_value * 10
 	Global.money += ball_money_value
 	var notification = POPUP_NOTIFICATION.instantiate()
+	call_deferred("_deferred_collect_actions", notification, ball_money_value)
+	
+
+func _deferred_collect_actions(notification, value):
 	notification.global_position = self.global_position
 	get_parent().add_child(notification)
 	notification.set_text("+$" + str(int(ball_money_value)))

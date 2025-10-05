@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=31 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cxhhvpw1tdkfl" path="res://game.gd" id="1_215e1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cn5xbedqwpwh4" path="res://robot stuff/arms_center.gd" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://ba01lw0thklfc" path="res://robot stuff/robotArms.png" id="3_fc0e3"]
 [ext_resource type="Script" uid="uid://bc57nnpwvjbsf" path="res://ball stuff/ball_spawner.gd" id="5_ryrav"]
+[ext_resource type="Texture2D" uid="uid://cn2k0bpn1j26k" path="res://GameOver.png" id="8_boyg6"]
 [ext_resource type="FontFile" uid="uid://bj618srsmjpcn" path="res://Font/static/Outfit-Medium.ttf" id="8_vef74"]
 [ext_resource type="Script" uid="uid://b63d7t0h1mf26" path="res://arm_scale_point.gd" id="9_e8heu"]
 [ext_resource type="Script" uid="uid://bjtny0bsusemu" path="res://money_label.gd" id="9_hve3p"]
@@ -18,6 +19,12 @@
 [ext_resource type="PackedScene" uid="uid://dh110c2nc4qc5" path="res://upgrade stuff/upgrade_menu.tscn" id="13_lc2xo"]
 [ext_resource type="FontFile" uid="uid://2qrsylqregob" path="res://Font/static/Outfit-Regular.ttf" id="14_7sc4i"]
 [ext_resource type="Script" uid="uid://cdtpnw5mtfqwj" path="res://round_quota.gd" id="18_rvswv"]
+[ext_resource type="FontFile" uid="uid://dh6exrn38jeku" path="res://Font/static/Outfit-Bold.ttf" id="20_e36ub"]
+[ext_resource type="Script" uid="uid://btosntu62fbji" path="res://try_again_button.gd" id="21_hb5m1"]
+[ext_resource type="Script" uid="uid://gs1yov2gs8a2" path="res://round_title.gd" id="22_x5p1p"]
+[ext_resource type="Texture2D" uid="uid://dsbds8p3d823c" path="res://Victory.png" id="23_f1jbl"]
+[ext_resource type="FontFile" uid="uid://kf6nq5103n2j" path="res://Font/static/Outfit-SemiBold.ttf" id="24_vaj68"]
+[ext_resource type="Script" uid="uid://df8k58ih5u2gg" path="res://play_again_button.gd" id="25_vaj68"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -155,6 +162,37 @@ offset_top = -1.0
 offset_right = 751.0
 offset_bottom = 156.0
 
+[node name="LeftBound2" type="StaticBody2D" parent="GameStuff"]
+position = Vector2(-762, -662)
+rotation = 1.57079
+collision_layer = 10
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/LeftBound2"]
+shape = SubResource("WorldBoundaryShape2D_215e1")
+
+[node name="ColorRect" type="ColorRect" parent="GameStuff/LeftBound2"]
+visible = false
+offset_left = -574.0
+offset_right = 751.0
+offset_bottom = 157.0
+
+[node name="RightBound2" type="StaticBody2D" parent="GameStuff"]
+position = Vector2(705, -372)
+rotation = -1.57079
+collision_layer = 10
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/RightBound2"]
+shape = SubResource("WorldBoundaryShape2D_215e1")
+
+[node name="ColorRect" type="ColorRect" parent="GameStuff/RightBound2"]
+visible = false
+offset_left = -574.0
+offset_top = -1.0
+offset_right = 751.0
+offset_bottom = 156.0
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-193, -183)
 collision_layer = 10
@@ -192,7 +230,9 @@ polygon = PackedVector2Array(-232, -311, -201, -298, -168, -290, -124, -286, -92
 position = Vector2(0, -1)
 texture = ExtResource("2_e2o6t")
 
-[node name="MoneyLabel" type="Label" parent="."]
+[node name="GameGoingStuff" type="Node2D" parent="."]
+
+[node name="MoneyLabel" type="Label" parent="GameGoingStuff"]
 offset_left = -11999.0
 offset_top = -70.0
 offset_right = 12001.0
@@ -206,7 +246,7 @@ text = "Money: $0"
 horizontal_alignment = 1
 script = ExtResource("9_hve3p")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="GameGoingStuff"]
 offset_left = -537.0
 offset_top = -54.0
 offset_right = 2276.0
@@ -216,7 +256,7 @@ theme_override_fonts/font = ExtResource("8_vef74")
 theme_override_font_sizes/font_size = 300
 script = ExtResource("12_iotsf")
 
-[node name="ProgressLabel" type="Label" parent="ProgressBar"]
+[node name="ProgressLabel" type="Label" parent="GameGoingStuff/ProgressBar"]
 layout_mode = 0
 offset_left = 388.626
 offset_top = -397.879
@@ -227,9 +267,9 @@ theme_override_fonts/font = ExtResource("14_7sc4i")
 theme_override_font_sizes/font_size = 300
 text = "Round Progress"
 
-[node name="UpgradeMenu" parent="." instance=ExtResource("13_lc2xo")]
+[node name="UpgradeMenu" parent="GameGoingStuff" instance=ExtResource("13_lc2xo")]
 
-[node name="RoundQuota" type="Label" parent="."]
+[node name="RoundQuota" type="Label" parent="GameGoingStuff"]
 offset_left = -11659.0
 offset_top = -59.0
 offset_right = 12341.0
@@ -243,7 +283,87 @@ text = "Round Quota: $0"
 horizontal_alignment = 1
 script = ExtResource("18_rvswv")
 
+[node name="GameOverStuff" type="Node2D" parent="."]
+visible = false
+
+[node name="GameOver" type="Sprite2D" parent="GameOverStuff"]
+position = Vector2(-17, -494)
+scale = Vector2(0.416607, 0.416607)
+texture = ExtResource("8_boyg6")
+
+[node name="RememberQuota" type="Label" parent="GameOverStuff"]
+offset_left = -12001.0
+offset_top = -149.0
+offset_right = 11999.0
+offset_bottom = 481.0
+scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_font_sizes/font_size = 450
+text = "Remember to meet the money quota for each round."
+horizontal_alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="GameOverStuff"]
+offset_left = -121.0
+offset_top = -67.0
+offset_right = 2364.0
+offset_bottom = 562.0
+scale = Vector2(0.0953888, 0.0953888)
+theme_override_fonts/font = ExtResource("20_e36ub")
+theme_override_font_sizes/font_size = 400
+text = "Try Again"
+script = ExtResource("21_hb5m1")
+
+[node name="NextRoundStuff" type="Node2D" parent="."]
+
+[node name="RoundTitle" type="Label" parent="NextRoundStuff"]
+offset_left = -12001.0
+offset_top = -489.0
+offset_right = 11999.0
+offset_bottom = 141.0
+scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_vef74")
+theme_override_font_sizes/font_size = 1000
+text = "Round 1"
+horizontal_alignment = 1
+script = ExtResource("22_x5p1p")
+
+[node name="VictoryStuff" type="Node2D" parent="."]
+visible = false
+
+[node name="Victory" type="Sprite2D" parent="VictoryStuff"]
+position = Vector2(-1.90735e-06, -319)
+scale = Vector2(0.404978, 0.404978)
+texture = ExtResource("23_f1jbl")
+
+[node name="EndlessButton" type="Button" parent="VictoryStuff"]
+offset_left = 82.0
+offset_top = -129.0
+offset_right = 3533.0
+offset_bottom = 635.0
+scale = Vector2(0.113936, 0.113936)
+theme_override_fonts/font = ExtResource("24_vaj68")
+theme_override_font_sizes/font_size = 600
+text = "Go Endless"
+
+[node name="PlayAgainButton" type="Button" parent="VictoryStuff"]
+offset_left = -464.0
+offset_top = -127.0
+offset_right = 2987.0
+offset_bottom = 637.0
+scale = Vector2(0.113936, 0.113936)
+theme_override_fonts/font = ExtResource("24_vaj68")
+theme_override_font_sizes/font_size = 600
+text = "Play Again"
+script = ExtResource("25_vaj68")
+
 [connection signal="area_entered" from="GameStuff/Collector/BallCollector" to="GameStuff/Collector/BallCollector" method="_on_area_entered"]
 [connection signal="body_entered" from="GameStuff/Collector/BallCollector" to="GameStuff/Collector/BallCollector" method="_on_body_entered"]
 [connection signal="timeout" from="GameStuff/BallSpawner/Timer" to="GameStuff/BallSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameStuff/CloudSpawner/Timer" to="GameStuff/CloudSpawner" method="_on_timer_timeout"]
+[connection signal="pressed" from="GameOverStuff/TryAgainButton" to="GameOverStuff/TryAgainButton" method="_on_pressed"]
+[connection signal="pressed" from="VictoryStuff/EndlessButton" to="." method="_on_endless_button_pressed"]
+[connection signal="pressed" from="VictoryStuff/PlayAgainButton" to="VictoryStuff/PlayAgainButton" method="_on_pressed"]

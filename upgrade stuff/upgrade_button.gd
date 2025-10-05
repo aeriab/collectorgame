@@ -29,7 +29,7 @@ var uncommon_upgrades = [
 	{"name": "Stable Concoction", "stat1": "Rain lifetime", "target_global_var1": "modifier_rain_lifetime", "value": 1.3, "type": "mult"},
 	{"name": "Unstable Concoction", "stat1": "Elixer chance", "target_global_var1": "base_elixer_chance", "value": 40, "type": "flat"},
 	{"name": "Gold Pan", "stat1": "Gold chance", "target_global_var1": "base_gold_chance", "value": 40, "type": "flat"},
-	{"name": "Leg Day", "stat1": "Robot size", "target_global_var1": "modifier_robot_size", "value": 1.4, "type": "mult", "stat2": "Arms size", "target_global_var2": "modifier_arms_size", "value2": 0.8, "type2": "mult"},
+	{"name": "Leg Day", "stat1": "Robot size", "target_global_var1": "modifier_robot_size", "value": 1.2, "type": "mult", "stat2": "Arms size", "target_global_var2": "modifier_arms_size", "value2": 0.8, "type2": "mult"},
 ]
 
 var rare_upgrades = [
@@ -43,7 +43,7 @@ var rare_upgrades = [
 	{"name": "Granite", "stat1": "Soil lifetime", "target_global_var1": "modifier_dust_lifetime", "value": 2.0, "type": "mult"},
 	{"name": "Mining Gear", "stat1": "Gold chance", "target_global_var1": "base_gold_chance", "value": 100, "type": "flat"},
 	{"name": "Juice Spill", "stat1": "Elixer chance", "target_global_var1": "modifier_elixer_chance", "value": 2.0, "type": "mult"},
-	{"name": "Overgrow", "stat1": "Robot size", "target_global_var1": "modifier_robot_size", "value": 1.3, "type": "mult", "stat2": "Movement speed", "target_global_var2": "modifier_movement_speed", "value2": 0.9, "type2": "mult"},
+	{"name": "Overgrow", "stat1": "Robot size", "target_global_var1": "modifier_robot_size", "value": 1.2, "type": "mult", "stat2": "Movement speed", "target_global_var2": "modifier_movement_speed", "value2": 0.8, "type2": "mult"},
 	
 ]
 
@@ -54,8 +54,8 @@ var epic_upgrades = [
 	{"name": "Earth", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.5, "type": "mult"},
 	{"name": "Fancy Fluff", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 200.0, "type": "flat"},
 	{"name": "Royal Jelly", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 200.0, "type": "flat"},
-	{"name": "Tumbleweed", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 2.0, "type": "mult", "stat2": "Dust value", "target_global_var2": "modifier_dust_value", "value2": 2.0, "type2": "mult"},
-	{"name": "Micro Drops", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.6, "type": "mult", "stat2": "Rain rate", "target_global_var2": "modifier_rain_spawn", "value2": 1.3, "type2": "mult"},
+	{"name": "Tumbleweed", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 1.5, "type": "mult", "stat2": "Dust value", "target_global_var2": "modifier_dust_value", "value2": 1.5, "type2": "mult"},
+	{"name": "Micro Drops", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.7, "type": "mult", "stat2": "Rain rate", "target_global_var2": "modifier_rain_spawn", "value2": 1.3, "type2": "mult"},
 	
 ]
 
@@ -67,7 +67,7 @@ var legendary_upgrades = [
 	{"name": "Lavish Lint", "stat1": "Dust value", "target_global_var1": "modifier_dust_value", "value": 1.5, "type": "mult", "stat2": "Dust lifetime", "target_global_var2": "modifier_dust_lifetime", "value2": 2.0, "type2": "mult"},
 	{"name": "Universal Solvent", "stat1": "Rain value", "target_global_var1": "modifier_rain_value", "value": 1.5, "type": "mult", "stat2": "Rain lifetime", "target_global_var2": "modifier_rain_lifetime", "value2": 2.0, "type2": "mult"},
 	{"name": "Pancake", "stat1": "Collector width", "target_global_var1": "modifier_collector_width", "value": 1.5, "type": "mult", "stat2": "Collector height", "target_global_var2": "modifier_collector_height", "value2": 0.6, "type2": "mult"},
-	{"name": "Popeye's Fury", "stat1": "Arms size", "target_global_var1": "modifier_arms_size", "value": 1.7, "type": "mult", "stat2": "Robot size", "target_global_var2": "modifier_robot_size", "value2": 0.9, "type2": "mult"},
+	{"name": "Popeye's Fury", "stat1": "Arms size", "target_global_var1": "modifier_arms_size", "value": 1.4, "type": "mult", "stat2": "Robot size", "target_global_var2": "modifier_robot_size", "value2": 0.7, "type2": "mult"},
 	{"name": "Worth The Squeeze", "stat1": "Elixer chance", "target_global_var1": "base_elixer_chance", "value": 999, "type": "flat", "stat2": "Rain rate", "target_global_var2": "modifier_rain_spawn", "value2": 0.5, "type2": "mult"},
 	
 ]
