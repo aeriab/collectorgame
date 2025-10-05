@@ -85,6 +85,10 @@ var adjusted_gold_chance: float = base_gold_chance * modifier_gold_chance
 
 
 func _process(delta: float) -> void:
+	
+	round_quota = (base_reroll_costs[round - 1] - 2) * 3
+	
+	
 	# ADJUSTED VALUES
 	adjusted_movement_speed = base_movement_speed * modifier_movement_speed
 	adjusted_cloud_spawn = base_cloud_spawn * modifier_cloud_spawn
@@ -139,7 +143,7 @@ var cloud_ball_spawn_rate: float = 2.0
 var move_speed: float = 160.0
 var dust_value: float = 1.0
 var rain_value: float = 1.0
-var money: int = 1000.0
+var money: int = 1000000.0
 var dust_size: float = 1.0
 var rain_size: float = 1.0
 var rain_lifetime: float = 10.0
@@ -171,9 +175,10 @@ var cloud_max_size: float = 2.5
 ###########################################################   IMPORTANT
 var round_progression_rate: float = 5.0
 
+var round_quota: float = 0.0
 
 var round: int = 1
-var base_reroll_costs: Array[int] = [5,10,20,30,50,80,120,200,300,400,550,750,1000,1500,2500,3500]
+var base_reroll_costs: Array[int] = [2,3,5,7,10,15,20,30,50,80,120,200,300,400,550,750,1000,1500,2500,3500]
 var reroll_cost: int = 5
 
 var shop_rarity_rates: Array[float] = [35,30,20,10,5]

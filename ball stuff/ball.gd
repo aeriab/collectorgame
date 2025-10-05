@@ -14,11 +14,18 @@ var is_elixer: bool = false
 var is_gold: bool = false
 
 func _ready():
+	var tween = create_tween()
+	
+	
 	if Global.gold_chance >= randf_range(0.0,100.0):
 		is_gold = true
 		modulate = Color("#FFD700")
+		gravity_scale = 0.6
 	else:
 		modulate = Color("#ac9c86")
+	
+	modulate.a = 0.0
+	tween.tween_property(self, "modulate:a", 1.0, 0.3)
 	
 	physics_material_override.bounce = Global.dust_bounce
 	

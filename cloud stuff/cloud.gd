@@ -52,14 +52,18 @@ func _on_timer_timeout():
 	ball_instance.initialize_scale(random_scale)
 	
 	ball_instance.physics_material_override.bounce = Global.rain_bounce
-	
+	ball_instance.gravity_scale = 0.5
 	ball_instance.modulate = Color("#a2dfff")
 	if Global.elixer_chance >= randf_range(0.0,100.0):
 		ball_instance.is_elixer = true
 		ball_instance.modulate = Color("#ff6ef6")
 	
+	var tween = create_tween()
+	ball_instance.modulate.a = 0.0
+	tween.tween_property(ball_instance, "modulate:a", 1.0, 2.0)
+	
 	var random_lifetime: float = randf_range(Global.rain_lifetime * 0.66,Global.rain_lifetime * 1.33)
 	ball_instance.initialize_lifetime(random_lifetime)
-	ball_instance.change_color(cloud_ball_color)
+	#ball_instance.change_color(cloud_ball_color)
 	ball_instance.global_position = global_position + Vector2(random_x, random_y)
 	timer.wait_time = randf_range(0.01, Global.cloud_ball_spawn_rate)
