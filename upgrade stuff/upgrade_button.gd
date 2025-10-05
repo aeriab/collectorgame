@@ -58,6 +58,8 @@ var legendary_upgrades = [
 	{"name": "Terra firma", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 500, "type": "flat"},
 	{"name": "Lavish lint", "stat1": "Dust value", "target_global_var1": "modifier_dust_value", "value": 1.5, "type": "mult", "stat2": "Dust lifetime", "target_global_var2": "modifier_dust_lifetime", "value2": 2.0, "type2": "mult"},
 	{"name": "Universal solvent", "stat1": "Rain value", "target_global_var1": "modifier_rain_value", "value": 1.5, "type": "mult", "stat2": "Rain lifetime", "target_global_var2": "modifier_rain_lifetime", "value2": 2.0, "type2": "mult"},
+	{"name": "Pancake", "stat1": "Collector width", "target_global_var1": "modifier_collector_width", "value": 1.5, "type": "mult", "stat2": "Collector height", "target_global_var2": "modifier_collector_height", "value2": 0.6, "type2": "mult"},
+
 ]
 
 

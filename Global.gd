@@ -40,7 +40,6 @@ var adjusted_rain_lifetime: float = base_rain_lifetime * modifier_rain_lifetime
 var base_dust_lifetime: float = 100.0
 var modifier_dust_lifetime: float = 1.0
 var adjusted_dust_lifetime: float = base_dust_lifetime * modifier_dust_lifetime
-#########################################################################################################
 
 var base_rain_bounce: float = 100.0
 var modifier_rain_bounce: float = 1.0
@@ -49,6 +48,16 @@ var adjusted_rain_bounce: float = base_rain_bounce * modifier_rain_bounce
 var base_dust_bounce: float = 100.0
 var modifier_dust_bounce: float = 1.0
 var adjusted_dust_bounce: float = base_dust_bounce * modifier_dust_bounce
+#########################################################################################################
+
+var base_collector_width: float = 100.0
+var modifier_collector_width: float = 1.0
+var adjusted_collector_width: float = base_collector_width * modifier_collector_width
+
+var base_collector_height: float = 100.0
+var modifier_collector_height: float = 1.0
+var adjusted_collector_height: float = base_collector_height * modifier_collector_height
+
 
 
 
@@ -68,9 +77,12 @@ func _process(delta: float) -> void:
 	adjusted_dust_size = base_dust_size * modifier_dust_size
 	adjusted_rain_lifetime = base_rain_lifetime * modifier_rain_lifetime
 	adjusted_dust_lifetime = base_dust_lifetime * modifier_dust_lifetime
-	
 	adjusted_rain_bounce = base_rain_bounce * modifier_rain_bounce
 	adjusted_dust_bounce = base_dust_bounce * modifier_dust_bounce
+	
+	adjusted_collector_width = base_collector_width * modifier_collector_width
+	adjusted_collector_height = base_collector_height * modifier_collector_height
+	
 	
 	
 	# ACTUALLY SETTING VALUES
@@ -84,9 +96,12 @@ func _process(delta: float) -> void:
 	dust_size = 1.0 * (adjusted_dust_size / 100)
 	rain_lifetime = 5.0 * (adjusted_rain_lifetime / 100)
 	dust_lifetime = 10.0 * (adjusted_dust_lifetime / 100)
-	
 	rain_bounce = min(0.3 * (adjusted_rain_bounce / 100), 1.0)
 	dust_bounce = min(0.3 * (adjusted_dust_bounce / 100), 1.0)
+	
+	collector_width = 1.0 * (adjusted_collector_width / 100)
+	collector_height = 1.0 * (adjusted_collector_height / 100)
+	
 	
 	
 
@@ -102,9 +117,17 @@ var dust_size: float = 1.0
 var rain_size: float = 1.0
 var dust_lifetime: float = 10.0
 var rain_lifetime: float = 5.0
-
 var dust_bounce: float = 0.3
 var rain_bounce: float = 0.3
+
+var collector_width: float = 1.0
+var collector_height: float = 1.0
+
+
+
+
+
+
 
 
 var shrink_speed: float = 0.01

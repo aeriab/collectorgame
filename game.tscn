@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=22 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cxhhvpw1tdkfl" path="res://game.gd" id="1_215e1"]
 [ext_resource type="Script" uid="uid://c2reyie1t23i3" path="res://ball_collector.gd" id="1_eow3j"]
+[ext_resource type="Script" uid="uid://c8f40lo70osfv" path="res://collector.gd" id="2_80cx4"]
 [ext_resource type="Texture2D" uid="uid://d2xfc3jahpjip" path="res://robot stuff/PixelRobot.png" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://ddh1oqme01mty" path="res://robot stuff/player.gd" id="2_feb5d"]
 [ext_resource type="Script" uid="uid://cn5xbedqwpwh4" path="res://robot stuff/arms_center.gd" id="3_7jktm"]
@@ -52,48 +53,53 @@ offset_top = -102.0
 offset_right = 700.0
 offset_bottom = 143.0
 
-[node name="collectorBottom" type="ColorRect" parent="GameStuff/StaticBody2D-Ground"]
-offset_left = -58.0
-offset_top = -102.0
-offset_right = 61.0
-offset_bottom = -77.0
-color = Color(0.698039, 1, 0.670588, 1)
+[node name="Collector" type="Node2D" parent="GameStuff"]
+position = Vector2(0, -102)
+script = ExtResource("2_80cx4")
 
-[node name="LeftWall" type="StaticBody2D" parent="GameStuff"]
+[node name="LeftWall" type="StaticBody2D" parent="GameStuff/Collector"]
+position = Vector2(0, 102)
 
-[node name="ColorRect" type="ColorRect" parent="GameStuff/LeftWall"]
+[node name="ColorRect" type="ColorRect" parent="GameStuff/Collector/LeftWall"]
 offset_left = -80.0
 offset_top = -185.0
 offset_right = -52.0
 offset_bottom = -77.0
 color = Color(0.698247, 1, 0.671604, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/LeftWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/Collector/LeftWall"]
 position = Vector2(-66, -129.125)
 shape = SubResource("RectangleShape2D_ryrav")
 
-[node name="RightWall" type="StaticBody2D" parent="GameStuff"]
+[node name="RightWall" type="StaticBody2D" parent="GameStuff/Collector"]
+position = Vector2(0, 102)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="ColorRect" type="ColorRect" parent="GameStuff/RightWall"]
+[node name="ColorRect" type="ColorRect" parent="GameStuff/Collector/RightWall"]
 offset_left = -80.0
 offset_top = -185.0
 offset_right = -52.0
 offset_bottom = -77.0
 color = Color(0.698039, 1, 0.670588, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/RightWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/Collector/RightWall"]
 position = Vector2(-66.0003, -129)
 shape = SubResource("RectangleShape2D_ryrav")
 
-[node name="BallCollector" type="Area2D" parent="GameStuff"]
-position = Vector2(0, -98)
+[node name="BallCollector" type="Area2D" parent="GameStuff/Collector"]
+position = Vector2(0, 4)
 script = ExtResource("1_eow3j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/BallCollector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/Collector/BallCollector"]
 position = Vector2(0, 6.5)
 shape = SubResource("RectangleShape2D_j5wjh")
+
+[node name="collectorBottom" type="ColorRect" parent="GameStuff/Collector"]
+offset_left = -58.0
+offset_right = 61.0
+offset_bottom = 25.0
+color = Color(0.698039, 1, 0.670588, 1)
 
 [node name="BallSpawner" type="Node2D" parent="GameStuff"]
 script = ExtResource("5_ryrav")
@@ -199,7 +205,7 @@ text = "Round Progress"
 
 [node name="UpgradeMenu" parent="." instance=ExtResource("13_lc2xo")]
 
-[connection signal="area_entered" from="GameStuff/BallCollector" to="GameStuff/BallCollector" method="_on_area_entered"]
-[connection signal="body_entered" from="GameStuff/BallCollector" to="GameStuff/BallCollector" method="_on_body_entered"]
+[connection signal="area_entered" from="GameStuff/Collector/BallCollector" to="GameStuff/Collector/BallCollector" method="_on_area_entered"]
+[connection signal="body_entered" from="GameStuff/Collector/BallCollector" to="GameStuff/Collector/BallCollector" method="_on_body_entered"]
 [connection signal="timeout" from="GameStuff/BallSpawner/Timer" to="GameStuff/BallSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="GameStuff/CloudSpawner/Timer" to="GameStuff/CloudSpawner" method="_on_timer_timeout"]
