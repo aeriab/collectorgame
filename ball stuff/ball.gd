@@ -12,8 +12,21 @@ var ball_money_value: float = 1.0
 var is_rain: bool = false
 
 func _ready():
+	physics_material_override.bounce = Global.dust_bounce
+	
 	var random_scale: float = randf_range(Global.dust_size * 0.66,Global.dust_size * 1.33)
 	initialize_scale(random_scale)
+	
+	var random_lifetime: float = randf_range(Global.dust_lifetime * 0.66,Global.dust_lifetime * 1.33)
+	initialize_lifetime(random_lifetime)
+
+@onready var timer = $Timer
+func initialize_lifetime(lifetime_val):
+	print(lifetime_val)
+	timer.stop()
+	timer.wait_time = lifetime_val
+	timer.start()
+
 
 func initialize_scale(scale_val):
 	collision_shape_2d.scale = Vector2(scale_val,scale_val)
@@ -42,7 +55,6 @@ func collect():
 	notification.global_position = self.global_position
 	get_parent().add_child(notification)
 	notification.set_text("+$" + str(int(ball_money_value)))
-	print(ball_money_value)
 	collision_shape_2d.disabled = true
 	cue_ball_temp.visible = false
 	cpu_particles_2d.color = collect_color

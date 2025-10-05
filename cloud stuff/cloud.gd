@@ -50,6 +50,11 @@ func _on_timer_timeout():
 	ball_instance.is_rain = true
 	var random_scale: float = randf_range(Global.rain_size * 0.66,Global.rain_size * 1.33)
 	ball_instance.initialize_scale(random_scale)
+	
+	ball_instance.physics_material_override.bounce = Global.rain_bounce
+	
+	var random_lifetime: float = randf_range(Global.rain_lifetime * 0.66,Global.rain_lifetime * 1.33)
+	ball_instance.initialize_lifetime(random_lifetime)
 	ball_instance.change_color(cloud_ball_color)
 	ball_instance.global_position = global_position + Vector2(random_x, random_y)
 	timer.wait_time = randf_range(0.01, Global.cloud_ball_spawn_rate)

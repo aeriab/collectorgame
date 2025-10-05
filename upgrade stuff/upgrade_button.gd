@@ -14,8 +14,10 @@ var common_upgrades = [
 	{"name": "Kite", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 10, "type": "flat"},
 	{"name": "Puddle", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 10, "type": "flat"},
 	{"name": "Dirt", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 10, "type": "flat"},
-	{"name": "Drips", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.8, "type": "mult"},
-	{"name": "Grains", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 0.8, "type": "mult"},
+	{"name": "Drips", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.9, "type": "mult"},
+	{"name": "Grains", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 0.9, "type": "mult"},
+	{"name": "Popper", "stat1": "Dust bounce", "target_global_var1": "base_dust_bounce", "value": 25, "type": "flat"},
+	{"name": "Beach ball", "stat1": "Rain bounce", "target_global_var1": "base_rain_bounce", "value": 25, "type": "flat"},
 ]
 
 var uncommon_upgrades = [
@@ -23,6 +25,8 @@ var uncommon_upgrades = [
 	{"name": "Wind vane", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 20, "type": "flat"},
 	{"name": "Water bottle", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 20, "type": "flat"},
 	{"name": "Mud", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 20, "type": "flat"},
+	{"name": "Lasting lint", "stat1": "Dust lifetime", "target_global_var1": "base_dust_lifetime", "value": 40, "type": "flat"},
+	{"name": "Stable concoction", "stat1": "Rain lifetime", "target_global_var1": "modifier_rain_lifetime", "value": 1.3, "type": "mult"},
 ]
 
 var rare_upgrades = [
@@ -30,8 +34,10 @@ var rare_upgrades = [
 	{"name": "Barometer", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 1.2, "type": "mult"},
 	{"name": "Watering can", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 50, "type": "flat"},
 	{"name": "Soil", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.2, "type": "mult"},
-	{"name": "Pay dirt", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 1.0, "type": "flat"},
-	{"name": "Honey", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 1.0, "type": "flat"},
+	{"name": "Pay dirt", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 100.0, "type": "flat"},
+	{"name": "Honey", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 100.0, "type": "flat"},
+	{"name": "Nectar", "stat1": "Rain lifetime", "target_global_var1": "base_rain_lifetime", "value": 100.0, "type": "flat"},
+	{"name": "Granite", "stat1": "Soil lifetime", "target_global_var1": "modifier_soil_lifetime", "value": 2.0, "type": "mult"},
 ]
 
 var epic_upgrades = [
@@ -39,10 +45,10 @@ var epic_upgrades = [
 	{"name": "Propeller", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 100, "type": "flat"},
 	{"name": "Rain barrel", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 1.5, "type": "mult"},
 	{"name": "Earth", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.5, "type": "mult"},
-	{"name": "Fancy fluff", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 2.0, "type": "flat"},
-	{"name": "Nectar", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 2.0, "type": "flat"},
-	{"name": "Tumbleweed", "stat1": "Dust size", "target_global_var1": "modifier_dust_spawn", "value": 3.0, "type": "mult", "stat2": "Dust value", "target_global_var2": "modifier_dust_value", "value2": 3.0, "type2": "mult"},
-
+	{"name": "Fancy fluff", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 200.0, "type": "flat"},
+	{"name": "Royal jelly", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 200.0, "type": "flat"},
+	{"name": "Tumbleweed", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 2.0, "type": "mult", "stat2": "Dust value", "target_global_var2": "modifier_dust_value", "value2": 2.0, "type2": "mult"},
+	{"name": "Micro drops", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.6, "type": "mult", "stat2": "Rain rate", "target_global_var2": "modifier_rain_spawn", "value2": 1.3, "type2": "mult"},
 ]
 
 var legendary_upgrades = [
@@ -50,8 +56,8 @@ var legendary_upgrades = [
 	{"name": "Weather balloon", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 2.0, "type": "mult"},
 	{"name": "Water tower", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 2.0, "type": "mult"},
 	{"name": "Terra firma", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 500, "type": "flat"},
-	{"name": "Lavish lint", "stat1": "Dust value", "target_global_var1": "modifier_dust_value", "value": 1.5, "type": "mult"},
-	{"name": "Royal jelly", "stat1": "Rain value", "target_global_var1": "modifier_rain_value", "value": 1.5, "type": "mult"},
+	{"name": "Lavish lint", "stat1": "Dust value", "target_global_var1": "modifier_dust_value", "value": 1.5, "type": "mult", "stat2": "Dust lifetime", "target_global_var2": "modifier_dust_lifetime", "value2": 2.0, "type2": "mult"},
+	{"name": "Universal solvent", "stat1": "Rain value", "target_global_var1": "modifier_rain_value", "value": 1.5, "type": "mult", "stat2": "Rain lifetime", "target_global_var2": "modifier_rain_lifetime", "value2": 2.0, "type2": "mult"},
 ]
 
 
@@ -83,9 +89,9 @@ func _on_shop_reset():
 	chosen_upgrade = all_upgrades[rarity-1].pick_random()
 	upgrade_cost = Global.base_reroll_costs[Global.round-1] * rarity
 	if chosen_upgrade.type == "mult":
-		text = chosen_upgrade.name + "\n-----------------------------\n" + "x" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+		text = chosen_upgrade.name + "\n-----------------------------\n" + "x" + str(chosen_upgrade.value) + " \n" + chosen_upgrade.stat1 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
 	elif chosen_upgrade.type == "flat":
-		text = chosen_upgrade.name + "\n-----------------------------\n" + "+" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+		text = chosen_upgrade.name + "\n-----------------------------\n" + "+" + str(chosen_upgrade.value) + " \n" + chosen_upgrade.stat1 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
 	
 	if "stat2" in chosen_upgrade:
 		if chosen_upgrade.type == "mult":
@@ -126,3 +132,10 @@ func _on_pressed() -> void:
 			Global.set(chosen_upgrade.target_global_var1, Global.get(chosen_upgrade.target_global_var1) * chosen_upgrade.value)
 		elif chosen_upgrade.type == "flat":
 			Global.set(chosen_upgrade.target_global_var1, Global.get(chosen_upgrade.target_global_var1) + chosen_upgrade.value)
+		
+		if "stat2" in chosen_upgrade:
+			if chosen_upgrade.type2 == "mult":
+				Global.set(chosen_upgrade.target_global_var2, Global.get(chosen_upgrade.target_global_var2) * chosen_upgrade.value2)
+			elif chosen_upgrade.type == "flat":
+				Global.set(chosen_upgrade.target_global_var2, Global.get(chosen_upgrade.target_global_var2) + chosen_upgrade.value2)
+		

@@ -17,23 +17,43 @@ var base_dust_spawn: float = 100
 var modifier_dust_spawn: float = 1.0
 var adjusted_dust_spawn: float = base_dust_spawn * modifier_dust_spawn
 
-var base_rain_value: float = 1.0
+var base_rain_value: float = 100.0
 var modifier_rain_value: float = 1.0
 var adjusted_rain_value: float = base_rain_value * modifier_rain_value
 
-var base_dust_value: float = 1.0
+var base_dust_value: float = 100.0
 var modifier_dust_value: float = 1.0
 var adjusted_dust_value: float = base_dust_value * modifier_dust_value
-#########################################################################################################
 
-
-var base_rain_size: float = 1.0
+var base_rain_size: float = 100.0
 var modifier_rain_size: float = 1.0
 var adjusted_rain_size: float = base_rain_size * modifier_rain_size
 
-var base_dust_size: float = 1.0
+var base_dust_size: float = 100.0
 var modifier_dust_size: float = 1.0
 var adjusted_dust_size: float = base_dust_size * modifier_dust_size
+
+var base_rain_lifetime: float = 100.0
+var modifier_rain_lifetime: float = 1.0
+var adjusted_rain_lifetime: float = base_rain_lifetime * modifier_rain_lifetime
+
+var base_dust_lifetime: float = 100.0
+var modifier_dust_lifetime: float = 1.0
+var adjusted_dust_lifetime: float = base_dust_lifetime * modifier_dust_lifetime
+#########################################################################################################
+
+var base_rain_bounce: float = 100.0
+var modifier_rain_bounce: float = 1.0
+var adjusted_rain_bounce: float = base_rain_bounce * modifier_rain_bounce
+
+var base_dust_bounce: float = 100.0
+var modifier_dust_bounce: float = 1.0
+var adjusted_dust_bounce: float = base_dust_bounce * modifier_dust_bounce
+
+
+
+
+
 
 
 func _process(delta: float) -> void:
@@ -44,9 +64,13 @@ func _process(delta: float) -> void:
 	adjusted_dust_spawn = base_dust_spawn * modifier_dust_spawn
 	adjusted_rain_value = base_rain_value * modifier_rain_value
 	adjusted_dust_value = base_dust_value * modifier_dust_value
-	
 	adjusted_rain_size = base_rain_size * modifier_rain_size
 	adjusted_dust_size = base_dust_size * modifier_dust_size
+	adjusted_rain_lifetime = base_rain_lifetime * modifier_rain_lifetime
+	adjusted_dust_lifetime = base_dust_lifetime * modifier_dust_lifetime
+	
+	adjusted_rain_bounce = base_rain_bounce * modifier_rain_bounce
+	adjusted_dust_bounce = base_dust_bounce * modifier_dust_bounce
 	
 	
 	# ACTUALLY SETTING VALUES
@@ -54,11 +78,15 @@ func _process(delta: float) -> void:
 	cloud_spawn_rate = 25.0 * (1 / (adjusted_cloud_spawn / 100.0))
 	cloud_ball_spawn_rate = 2.0 * (1 / (adjusted_rain_spawn / 100.0))
 	move_speed = 160.0 * (adjusted_movement_speed / 100.0)
-	rain_value = 1.0 * (adjusted_rain_value / 1.0)
-	dust_value = 1.0 * (adjusted_dust_value / 1.0)
+	rain_value = 1.0 * (adjusted_rain_value / 100.0)
+	dust_value = 1.0 * (adjusted_dust_value / 100.0)
+	rain_size = 1.0 * (adjusted_rain_size / 100)
+	dust_size = 1.0 * (adjusted_dust_size / 100)
+	rain_lifetime = 5.0 * (adjusted_rain_lifetime / 100)
+	dust_lifetime = 10.0 * (adjusted_dust_lifetime / 100)
 	
-	rain_size = 1.0 * (adjusted_rain_size)
-	dust_size = 1.0 * (adjusted_dust_size)
+	rain_bounce = min(0.3 * (adjusted_rain_bounce / 100), 1.0)
+	dust_bounce = min(0.3 * (adjusted_dust_bounce / 100), 1.0)
 	
 	
 
@@ -72,6 +100,11 @@ var rain_value: float = 1.0
 var money: int = 1000.0
 var dust_size: float = 1.0
 var rain_size: float = 1.0
+var dust_lifetime: float = 10.0
+var rain_lifetime: float = 5.0
+
+var dust_bounce: float = 0.3
+var rain_bounce: float = 0.3
 
 
 var shrink_speed: float = 0.01
@@ -90,7 +123,7 @@ var round: int = 1
 var base_reroll_costs: Array[int] = [5,10,20,30,50,80,120,200,300,400,550,750,1000,1500,2500,3500]
 var reroll_cost: int = 5
 
-var shop_rarity_rates: Array[float] = [35,25,20,15,5]
+var shop_rarity_rates: Array[float] = [35,30,20,10,5]
 
 var round_going: bool = true
 signal stop_round

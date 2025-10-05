@@ -11,7 +11,7 @@ extends Node2D
 @export var spawn_x_max: float = 800.0 # Default width for a new 2D project
 
 ## The vertical position (Y value) for spawning.
-@export var spawn_y_position: float = -800.0
+@export var spawn_y_position: float = -1800.0
 @onready var timer = $Timer
 
 func _ready():
