@@ -31,4 +31,4 @@ func _on_timer_timeout():
 	var random_x = randf_range(spawn_x_min, spawn_x_max)
 	new_ball.position = Vector2(random_x, spawn_y_position)
 	add_child(new_ball)
-	timer.wait_time = randf_range(0.01, Global.spawn_rate)
+	timer.wait_time = randf_range(0.01, Global.dust_spawn_rate)

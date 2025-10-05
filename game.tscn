@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=20 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cxhhvpw1tdkfl" path="res://game.gd" id="1_215e1"]
@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bm48iec6wypnm" path="res://cloud stuff/cloud_spawner.gd" id="10_hve3p"]
 [ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud stuff/cloud.tscn" id="11_mfdv2"]
 [ext_resource type="Script" uid="uid://wyoq17w4yjsh" path="res://progress_bar.gd" id="12_iotsf"]
-[ext_resource type="PackedScene" uid="uid://dh110c2nc4qc5" path="res://upgrade_menu.tscn" id="13_lc2xo"]
+[ext_resource type="PackedScene" uid="uid://dh110c2nc4qc5" path="res://upgrade stuff/upgrade_menu.tscn" id="13_lc2xo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -22,6 +22,8 @@ size = Vector2(28, 111.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5wjh"]
 size = Vector2(118, 33)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_215e1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nbo"]
 radius = 19.0
@@ -113,6 +115,20 @@ offset_bottom = -452.0
 [node name="Timer" type="Timer" parent="GameStuff/CloudSpawner"]
 autostart = true
 
+[node name="LeftBound" type="StaticBody2D" parent="GameStuff"]
+position = Vector2(-602, -186)
+rotation = 1.309
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/LeftBound"]
+shape = SubResource("WorldBoundaryShape2D_215e1")
+
+[node name="RightBound" type="StaticBody2D" parent="GameStuff"]
+position = Vector2(607, -199)
+rotation = -1.309
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameStuff/RightBound"]
+shape = SubResource("WorldBoundaryShape2D_215e1")
+
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(-132, -205)
 collision_layer = 2
@@ -146,15 +162,17 @@ position = Vector2(0, -1)
 texture = ExtResource("2_e2o6t")
 
 [node name="MoneyLabel" type="Label" parent="."]
-offset_left = -115.0
-offset_top = -77.0
-offset_right = 2234.0
-offset_bottom = 553.0
+offset_left = -11999.0
+offset_top = -70.0
+offset_right = 12001.0
+offset_bottom = 560.0
 scale = Vector2(0.0975884, 0.0975884)
+pivot_offset = Vector2(12000, 0)
 theme_override_colors/font_color = Color(0.365346, 0.911409, 0, 1)
 theme_override_fonts/font = ExtResource("8_vef74")
 theme_override_font_sizes/font_size = 500
 text = "Money: $0"
+horizontal_alignment = 1
 script = ExtResource("9_hve3p")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
