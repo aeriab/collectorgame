@@ -84,6 +84,7 @@ text = "Buy an Upgrade"
 horizontal_alignment = 1
 
 [node name="MoneyLabel" type="Label" parent="PanelContainer/VBoxContainer/Label"]
+visible = false
 offset_left = -10782.3
 offset_top = 215.287
 offset_right = 13217.7
@@ -108,8 +109,7 @@ theme_override_fonts/font = ExtResource("2_jakhq")
 theme_override_font_sizes/font_size = 50
 text = "Upgrade 1
 +10% grey spawning
-- 10% cloud spawning
-........................................"
+- 10% cloud spawning"
 script = ExtResource("4_l2f4v")
 
 [node name="UpgradeButton2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainerUpgrades"]

@@ -14,6 +14,8 @@ var common_upgrades = [
 	{"name": "Kite", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 10, "type": "flat"},
 	{"name": "Puddle", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 10, "type": "flat"},
 	{"name": "Dirt", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 10, "type": "flat"},
+	{"name": "Drips", "stat1": "Rain size", "target_global_var1": "modifier_rain_size", "value": 0.8, "type": "mult"},
+	{"name": "Grains", "stat1": "Dust size", "target_global_var1": "modifier_dust_size", "value": 0.8, "type": "mult"},
 ]
 
 var uncommon_upgrades = [
@@ -39,6 +41,8 @@ var epic_upgrades = [
 	{"name": "Earth", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.5, "type": "mult"},
 	{"name": "Fancy fluff", "stat1": "Dust value", "target_global_var1": "base_dust_value", "value": 2.0, "type": "flat"},
 	{"name": "Nectar", "stat1": "Rain value", "target_global_var1": "base_rain_value", "value": 2.0, "type": "flat"},
+	{"name": "Tumbleweed", "stat1": "Dust size", "target_global_var1": "modifier_dust_spawn", "value": 3.0, "type": "mult", "stat2": "Dust value", "target_global_var2": "modifier_dust_value", "value2": 3.0, "type2": "mult"},
+
 ]
 
 var legendary_upgrades = [
@@ -82,6 +86,22 @@ func _on_shop_reset():
 		text = chosen_upgrade.name + "\n-----------------------------\n" + "x" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
 	elif chosen_upgrade.type == "flat":
 		text = chosen_upgrade.name + "\n-----------------------------\n" + "+" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+	
+	if "stat2" in chosen_upgrade:
+		if chosen_upgrade.type == "mult":
+			if chosen_upgrade.type2 == "mult":
+				text = chosen_upgrade.name + "\n-----------------------------\n" + "x" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\nx" + str(chosen_upgrade.value2) + " " + chosen_upgrade.stat2 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+			elif chosen_upgrade.type2 == "flat":
+				text = chosen_upgrade.name + "\n-----------------------------\n" + "x" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n+" + str(chosen_upgrade.value2) + " " + chosen_upgrade.stat2 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+		elif chosen_upgrade.type == "flat":
+			if chosen_upgrade.type2 == "mult":
+				text = chosen_upgrade.name + "\n-----------------------------\n" + "+" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\nx" + str(chosen_upgrade.value2) + " " + chosen_upgrade.stat2 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+			elif chosen_upgrade.type2 == "flat":
+				text = chosen_upgrade.name + "\n-----------------------------\n" + "+" + str(chosen_upgrade.value) + " " + chosen_upgrade.stat1 + "\n+" + str(chosen_upgrade.value2) + " " + chosen_upgrade.stat2 + "\n-----------------------------" + "\n$" + str(upgrade_cost)
+	
+	
+	
+	
 
 func set_rarity_value() -> int:
 	var total_weight = 0.0

@@ -5,10 +5,20 @@ extends RigidBody2D
 @export var collect_color: Color
 @onready var collision_shape_2d = $CollisionShape2D
 const POPUP_NOTIFICATION = preload("res://popup_notification.tscn")
+@onready var ball_proxy = $BallProxy
 
 var ball_money_value: float = 1.0
 
 var is_rain: bool = false
+
+func _ready():
+	var random_scale: float = randf_range(Global.dust_size * 0.66,Global.dust_size * 1.33)
+	initialize_scale(random_scale)
+
+func initialize_scale(scale_val):
+	collision_shape_2d.scale = Vector2(scale_val,scale_val)
+	ball_proxy.scale = Vector2(scale_val,scale_val)
+	cpu_particles_2d.scale = Vector2(scale_val,scale_val)
 
 func _on_timer_timeout():
 	collision_shape_2d.disabled = true

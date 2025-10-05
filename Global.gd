@@ -24,6 +24,17 @@ var adjusted_rain_value: float = base_rain_value * modifier_rain_value
 var base_dust_value: float = 1.0
 var modifier_dust_value: float = 1.0
 var adjusted_dust_value: float = base_dust_value * modifier_dust_value
+#########################################################################################################
+
+
+var base_rain_size: float = 1.0
+var modifier_rain_size: float = 1.0
+var adjusted_rain_size: float = base_rain_size * modifier_rain_size
+
+var base_dust_size: float = 1.0
+var modifier_dust_size: float = 1.0
+var adjusted_dust_size: float = base_dust_size * modifier_dust_size
+
 
 func _process(delta: float) -> void:
 	# ADJUSTED VALUES
@@ -34,6 +45,9 @@ func _process(delta: float) -> void:
 	adjusted_rain_value = base_rain_value * modifier_rain_value
 	adjusted_dust_value = base_dust_value * modifier_dust_value
 	
+	adjusted_rain_size = base_rain_size * modifier_rain_size
+	adjusted_dust_size = base_dust_size * modifier_dust_size
+	
 	
 	# ACTUALLY SETTING VALUES
 	dust_spawn_rate = 2.0 * (1 / (adjusted_dust_spawn / 100.0))
@@ -42,6 +56,9 @@ func _process(delta: float) -> void:
 	move_speed = 160.0 * (adjusted_movement_speed / 100.0)
 	rain_value = 1.0 * (adjusted_rain_value / 1.0)
 	dust_value = 1.0 * (adjusted_dust_value / 1.0)
+	
+	rain_size = 1.0 * (adjusted_rain_size)
+	dust_size = 1.0 * (adjusted_dust_size)
 	
 	
 
@@ -53,6 +70,8 @@ var move_speed: float = 160.0
 var dust_value: float = 1.0
 var rain_value: float = 1.0
 var money: int = 1000.0
+var dust_size: float = 1.0
+var rain_size: float = 1.0
 
 
 var shrink_speed: float = 0.01
@@ -64,7 +83,7 @@ var cloud_min_size: float = 1.0
 var cloud_max_size: float = 2.5
 
 ###########################################################   IMPORTANT
-var round_progression_rate: float = 15.0
+var round_progression_rate: float = 5.0
 
 
 var round: int = 1
