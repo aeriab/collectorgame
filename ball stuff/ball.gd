@@ -8,6 +8,8 @@ const POPUP_NOTIFICATION = preload("res://popup_notification.tscn")
 
 var ball_money_value: float = 1.0
 
+var is_rain: bool = false
+
 func _on_timer_timeout():
 	collision_shape_2d.disabled = true
 	cue_ball_temp.visible = false
@@ -21,10 +23,16 @@ func change_color(new_color: Color):
 	cue_ball_temp.modulate = new_color
 
 func collect():
+	if is_rain:
+		ball_money_value = Global.rain_value
+	else:
+		ball_money_value = Global.dust_value
 	Global.money += ball_money_value
 	var notification = POPUP_NOTIFICATION.instantiate()
 	notification.global_position = self.global_position
 	get_parent().add_child(notification)
+	notification.set_text("+$" + str(int(ball_money_value)))
+	print(ball_money_value)
 	collision_shape_2d.disabled = true
 	cue_ball_temp.visible = false
 	cpu_particles_2d.color = collect_color

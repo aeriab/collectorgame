@@ -9,3 +9,7 @@ func _ready():
 	tween.tween_interval(0.5)
 	tween.tween_property(self, "modulate:a", 0.0, 0.4)
 	tween.finished.connect(queue_free)
+
+@onready var label = $Label
+func set_text(new_text):
+	label.text=new_text

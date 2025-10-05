@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bxh18be3ltwba"]
+[gd_scene load_steps=21 format=3 uid="uid://bxh18be3ltwba"]
 
 [ext_resource type="PackedScene" uid="uid://cnekgfju57wp5" path="res://ball stuff/ball.tscn" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://cxhhvpw1tdkfl" path="res://game.gd" id="1_215e1"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cxk3mitym5fsx" path="res://cloud stuff/cloud.tscn" id="11_mfdv2"]
 [ext_resource type="Script" uid="uid://wyoq17w4yjsh" path="res://progress_bar.gd" id="12_iotsf"]
 [ext_resource type="PackedScene" uid="uid://dh110c2nc4qc5" path="res://upgrade stuff/upgrade_menu.tscn" id="13_lc2xo"]
+[ext_resource type="FontFile" uid="uid://2qrsylqregob" path="res://Font/static/Outfit-Regular.ttf" id="14_7sc4i"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -176,14 +177,25 @@ horizontal_alignment = 1
 script = ExtResource("9_hve3p")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -528.0
-offset_top = -64.0
-offset_right = 2285.0
-offset_bottom = 318.0
+offset_left = -537.0
+offset_top = -54.0
+offset_right = 2276.0
+offset_bottom = 328.0
 scale = Vector2(0.108073, 0.108073)
 theme_override_fonts/font = ExtResource("8_vef74")
 theme_override_font_sizes/font_size = 300
 script = ExtResource("12_iotsf")
+
+[node name="ProgressLabel" type="Label" parent="ProgressBar"]
+layout_mode = 0
+offset_left = 388.626
+offset_top = -397.879
+offset_right = 2468.63
+offset_bottom = -19.8792
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_7sc4i")
+theme_override_font_sizes/font_size = 300
+text = "Round Progress"
 
 [node name="UpgradeMenu" parent="." instance=ExtResource("13_lc2xo")]
 

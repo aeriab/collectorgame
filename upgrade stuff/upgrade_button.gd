@@ -10,7 +10,7 @@ var epic_color: Color = Color("#db95e3")
 var legendary_color: Color = Color("#ffae00")
 
 var common_upgrades = [
-	{"name": "Hammer", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 10, "type": "flat"},
+	#{"name": "Hammer", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 10, "type": "flat"},
 	{"name": "Kite", "stat1": "Cloud rate", "target_global_var1": "base_cloud_spawn", "value": 10, "type": "flat"},
 	{"name": "Puddle", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 10, "type": "flat"},
 	{"name": "Dirt", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 10, "type": "flat"},
@@ -24,7 +24,7 @@ var uncommon_upgrades = [
 ]
 
 var rare_upgrades = [
-	{"name": "Screwdriver", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 50, "type": "flat"},
+	#{"name": "Screwdriver", "stat1": "Movement speed", "target_global_var1": "base_movement_speed", "value": 50, "type": "flat"},
 	{"name": "Barometer", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 1.2, "type": "mult"},
 	{"name": "Watering can", "stat1": "Rain rate", "target_global_var1": "base_rain_spawn", "value": 50, "type": "flat"},
 	{"name": "Soil", "stat1": "Dust rate", "target_global_var1": "modifier_dust_spawn", "value": 1.2, "type": "mult"},
@@ -42,7 +42,7 @@ var epic_upgrades = [
 ]
 
 var legendary_upgrades = [
-	{"name": "Engine", "stat1": "Movement speed", "target_global_var1": "modifier_movement_speed", "value": 2.0, "type": "mult"},
+	#{"name": "Engine", "stat1": "Movement speed", "target_global_var1": "modifier_movement_speed", "value": 2.0, "type": "mult"},
 	{"name": "Weather balloon", "stat1": "Cloud rate", "target_global_var1": "modifier_cloud_spawn", "value": 2.0, "type": "mult"},
 	{"name": "Water tower", "stat1": "Rain rate", "target_global_var1": "modifier_rain_spawn", "value": 2.0, "type": "mult"},
 	{"name": "Terra firma", "stat1": "Dust rate", "target_global_var1": "base_dust_spawn", "value": 500, "type": "flat"},

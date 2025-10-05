@@ -47,6 +47,7 @@ func _on_timer_timeout():
 	var random_x = randf_range(spawn_area_rect.position.x, spawn_area_rect.end.x)
 	var random_y = randf_range(spawn_area_rect.position.y, spawn_area_rect.end.y)
 	get_parent().add_child(ball_instance)
+	ball_instance.is_rain = true
 	ball_instance.change_color(cloud_ball_color)
 	ball_instance.global_position = global_position + Vector2(random_x, random_y)
 	timer.wait_time = randf_range(0.01, Global.cloud_ball_spawn_rate)

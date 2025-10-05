@@ -17,11 +17,11 @@ var base_dust_spawn: float = 100
 var modifier_dust_spawn: float = 1.0
 var adjusted_dust_spawn: float = base_dust_spawn * modifier_dust_spawn
 
-var base_rain_value: float = 100
+var base_rain_value: float = 1.0
 var modifier_rain_value: float = 1.0
 var adjusted_rain_value: float = base_rain_value * modifier_rain_value
 
-var base_dust_value: float = 100
+var base_dust_value: float = 1.0
 var modifier_dust_value: float = 1.0
 var adjusted_dust_value: float = base_dust_value * modifier_dust_value
 
@@ -40,8 +40,8 @@ func _process(delta: float) -> void:
 	cloud_spawn_rate = 25.0 * (1 / (adjusted_cloud_spawn / 100.0))
 	cloud_ball_spawn_rate = 2.0 * (1 / (adjusted_rain_spawn / 100.0))
 	move_speed = 160.0 * (adjusted_movement_speed / 100.0)
-	rain_value = 1.0 * (adjusted_rain_value / 100.0)
-	dust_value = 1.0 * (adjusted_dust_value / 100.0)
+	rain_value = 1.0 * (adjusted_rain_value / 1.0)
+	dust_value = 1.0 * (adjusted_dust_value / 1.0)
 	
 	
 
@@ -63,8 +63,9 @@ var cloud_max_lifetime: float = 14.0
 var cloud_min_size: float = 1.0
 var cloud_max_size: float = 2.5
 
+###########################################################   IMPORTANT
+var round_progression_rate: float = 15.0
 
-var round_progression_rate: float = 5.0
 
 var round: int = 1
 var base_reroll_costs: Array[int] = [5,10,20,30,50,80,120,200,300,400,550,750,1000,1500,2500,3500]
